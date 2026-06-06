@@ -456,7 +456,7 @@
       "status": "active",
       "attributes": "{\"material\":\"Sáp đậu nành bấc gỗ kêu lách tách\",\"weight\":\"180g\",\"scent_notes\":\"Rose, Red Apple, Amber\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:58.971Z"
     },
     {
       "id": "ff46bbd0-3c6a-4758-858e-b116a36621a0",
@@ -482,7 +482,7 @@
       "status": "active",
       "attributes": "{\"material\":\"Sáp dừa sáp đậu nành bấc cotton\",\"weight\":\"150g\",\"scent_notes\":\"Green Tea, Jasmine, Musk\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:58.972Z"
     },
     {
       "id": "7388657a-6e53-43cf-bb94-62d823b9654a",
@@ -495,7 +495,7 @@
       "status": "active",
       "attributes": "{\"material\":\"Than tre hoạt tính, dầu ô liu\",\"weight\":\"90g\",\"type\":\"Dùng cho body & mặt\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:58.972Z"
     },
     {
       "id": "e3d50b8d-c241-43b9-82da-30a350c1551e",
@@ -565,28 +565,28 @@
     {
       "id": "92ee47fd-6e3d-4c46-8e2a-983948e9c00a",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Nhẫn Bạc Chỉ Đơn Giản May Mắn",
-      "slug": "nhan-bac-chi-on-gian-may-man",
+      "name": "Nhẫn Bạc S925 Trơn Tối Giản",
+      "slug": "nhan-bac-s925-tron-toi-gian",
       "description": "Chiếc nhẫn bạc trơn dáng mảnh ổ khóa xoắn đơn giản nhưng mang ý nghĩa bảo vệ bình an.",
       "price": 190000,
       "stock": 30,
       "status": "active",
       "attributes": "{\"material\":\"Bạc S925 nguyên chất\",\"size\":\"Ni tay từ 10 đến 16\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.529Z"
     },
     {
       "id": "1a3162ae-6ac7-46f9-a955-994734412006",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Lắc Chân Hạt Đậu Bạc Dễ Thương",
-      "slug": "lac-chan-hat-au-bac-de-thuong",
+      "name": "Lắc Chân Bạc S925 Hạt Đậu Ý",
+      "slug": "lac-chan-bac-s925-hat-au-y",
       "description": "Lắc chân xích mảnh kết hợp các hạt đậu bạc nhỏ tròn lăn tăn vui mắt ôm chân.",
       "price": 280000,
       "stock": 15,
       "status": "active",
       "attributes": "{\"material\":\"Bạc S925 xi bạch kim\",\"length\":\"22cm + 3cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "4961799c-6a2d-4e1f-8fd7-3442af8893de",
@@ -604,15 +604,15 @@
     {
       "id": "a5efb05e-150c-4b54-b9e8-b16859f3ca9a",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Vòng Cổ Choker Hạt Cườm Biển",
-      "slug": "vong-co-choker-hat-cuom-bien",
+      "name": "Vòng Cổ Choker Hạt Cườm & Vỏ Sò Biển",
+      "slug": "vong-co-choker-hat-cuom-vo-so-bien",
       "description": "Choker cá tính cho mùa hè biển đan từ hạt cườm cẩm thạch lam kết hợp vỏ sò biển tự nhiên.",
       "price": 95000,
       "stock": 50,
       "status": "active",
       "attributes": "{\"material\":\"Hạt cườm cẩm thạch, vỏ điệp tự nhiên\",\"length\":\"38cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "e213490d-b333-4497-bc6d-cd4ae906430c",
@@ -625,20 +625,20 @@
       "status": "active",
       "attributes": "{\"material\":\"Bạc S925 nguyên chất\",\"diameter\":\"20mm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:58.972Z"
     },
     {
       "id": "5d24198c-6175-4584-ab95-10a7f26164dd",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Vòng Tay Chỉ Đỏ Kim Cương Nhân Tạo",
-      "slug": "vong-tay-chi-o-kim-cuong-nhan-tao",
+      "name": "Vòng Chỉ Đỏ May Mắn Đính Đá CZ",
+      "slug": "vong-chi-o-may-man-inh-a-cz",
       "description": "Vòng tay chỉ đỏ phong thủy may mắn đính viên đá CZ bạc 3 ly lấp lánh như kim cương.",
       "price": 150000,
       "stock": 80,
       "status": "active",
       "attributes": "{\"material\":\"Sợi dù chỉ đỏ Thái Lan, chốt bạc S925, đá CZ\",\"size\":\"Tự điều chỉnh dây\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "ad7b43d5-5fc2-4fcb-b7e5-7d9c417ee65e",
@@ -651,85 +651,85 @@
       "status": "active",
       "attributes": "{\"material\":\"Gỗ đào tự nhiên\",\"length\":\"18cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:58.972Z"
     },
     {
       "id": "be374d05-020e-4805-9cb2-3401b29c7204",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Nhẫn Bạc Đính Đá Lapis Xanh Dương",
-      "slug": "nhan-bac-inh-a-lapis-xanh-duong",
+      "name": "Nhẫn Bạc S925 Đính Đá Lapis Lazuli",
+      "slug": "nhan-bac-s925-inh-a-lapis-lazuli",
       "description": "Chiếc nhẫn bạc rèn thủ công đính viên đá Lapis Lazuli xanh thẳm như bầu trời đêm đầy sao.",
       "price": 490000,
       "stock": 6,
       "status": "active",
       "attributes": "{\"material\":\"Bạc S925, đá Lapis Lazuli tự nhiên\",\"style\":\"Retro Tây Tạng\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "4c22f3e0-8b05-411e-9efe-d7ef021cb995",
       "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
-      "name": "Vòng Dây Da Unisex Đính Charm Đồng",
-      "slug": "vong-day-da-unisex-inh-charm-ong",
+      "name": "Vòng Đeo Cổ Dây Da Charm Mỏ Neo Đồng",
+      "slug": "vong-eo-co-day-da-charm-mo-neo-ong",
       "description": "Dây đeo cổ bằng da bò bện nhiều sợi nhỏ mềm, đính kèm mặt charm hình mỏ neo đồng thau cổ điển.",
       "price": 190000,
       "stock": 30,
       "status": "active",
       "attributes": "{\"material\":\"Dây da bò, charm đồng chốt thép\",\"length\":\"45cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "085c8754-e2c5-4960-a8b8-e9065e11713a",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Giá Treo Cây Macrame Đơn",
-      "slug": "gia-treo-cay-macrame-on",
+      "name": "Giỏ Treo Chậu Cây Macrame Cotton",
+      "slug": "gio-treo-chau-cay-macrame-cotton",
       "description": "Giỏ thắt dây treo chậu cây trang trí ban công hoặc cửa sổ phong cách sân vườn xinh xắn.",
       "price": 180000,
       "stock": 35,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton trắng ngà 3mm, vòng gỗ sồi\",\"length\":\"90cm\",\"max_load\":\"3kg\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "8877554c-d2ee-42dd-9394-8987fd232b27",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Thảm Treo Đầu Giường Macrame Lá",
-      "slug": "tham-treo-au-giuong-macrame-la",
+      "name": "Mành Treo Tường Macrame Hình Lá Cotton",
+      "slug": "manh-treo-tuong-macrame-hinh-la-cotton",
       "description": "Tranh macrame kết hình các chiếc lá thông đan xen nhiều gam màu vintage đất ấm áp.",
       "price": 420000,
       "stock": 12,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton nhuộm hữu cơ, cành thông tự nhiên\",\"width\":\"50cm\",\"height\":\"65cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "bdc8487f-2ea6-4431-a12a-291480b8ff71",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Đế Lót Ly Macrame Tua Rua",
-      "slug": "e-lot-ly-macrame-tua-rua",
+      "name": "Đế Lót Ly Macrame Tua Rua Tối Giản",
+      "slug": "e-lot-ly-macrame-tua-rua-toi-gian",
       "description": "Miếng lót cốc thắt dây cotton bo viền tua rua bảo vệ mặt bàn trà chống xước cách nhiệt tốt.",
       "price": 35000,
       "stock": 120,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton dẹt mềm\",\"diameter\":\"15cm cả viền\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "471cac01-b164-4531-8865-89ea9cb91f74",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Kệ Gỗ Treo Tường Dây Thắt",
-      "slug": "ke-go-treo-tuong-day-that",
+      "name": "Kệ Gỗ Treo Tường Macrame Dây Cotton",
+      "slug": "ke-go-treo-tuong-macrame-day-cotton",
       "description": "Kệ gỗ thông tự nhiên treo tường nâng đỡ bằng hệ thống dây thắt Macrame chắc chắn nghệ thuật.",
       "price": 290000,
       "stock": 15,
       "status": "active",
       "attributes": "{\"material\":\"Gỗ thông ghép thanh 2cm, sợi cotton 4mm\",\"dimensions\":\"40cm x 15cm x 50cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "9c8d0905-5ebe-4b4d-8eb0-3ae6679d5aaf",
@@ -747,67 +747,67 @@
     {
       "id": "0a59ca29-1569-4f3e-8390-bdda6c8b7109",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Võng Treo Mèo Macrame Thư Giãn",
-      "slug": "vong-treo-meo-macrame-thu-gian",
+      "name": "Võng Treo Mèo Macrame Vintage",
+      "slug": "vong-treo-meo-macrame-vintage",
       "description": "Chiếc võng treo xinh xắn êm ái cho thú cưng đan dệt chắc chắn chịu lực lên tới 8kg.",
       "price": 380000,
       "stock": 8,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton chịu lực 4mm, đệm lót nỉ nhung\",\"length\":\"120cm\",\"ring_diameter\":\"35cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "9d80c0aa-fb25-4d70-b594-562d332ac1d2",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Đèn Ngủ Thả Trần Macrame",
-      "slug": "en-ngu-tha-tran-macrame",
+      "name": "Chao Đèn Thả Trần Macrame Phong Cách Boho",
+      "slug": "chao-en-tha-tran-macrame-phong-cach-boho",
       "description": "Chao đèn ngủ thắt dây rủ tạo bóng nắng lấp lánh dịu kỳ dịu ấm áp cho phòng ngủ boho.",
       "price": 650000,
       "stock": 4,
       "status": "active",
       "attributes": "{\"material\":\"Khung thép sơn tĩnh điện, sợi cotton\",\"diameter\":\"30cm\",\"height\":\"40cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "f1cc9bd2-0850-4733-80ef-64d86c040538",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Gương Decor Tròn Viền Macrame",
-      "slug": "guong-decor-tron-vien-macrame",
+      "name": "Gương Treo Tường Viền Macrame Tua Rua",
+      "slug": "guong-treo-tuong-vien-macrame-tua-rua",
       "description": "Gương soi treo tường trang trí phòng khách viền dệt ren dây tua rua sang xịn bừng sáng không gian.",
       "price": 390000,
       "stock": 10,
       "status": "active",
       "attributes": "{\"material\":\"Gương Bỉ chống mốc, sợi dệt cotton\",\"mirror_diameter\":\"25cm\",\"total_diameter\":\"40cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "3bc6db6d-0344-4671-b584-9bc8f4c7c72c",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Túi Xách Nữ Macrame Đi Biển",
-      "slug": "tui-xach-nu-macrame-i-bien",
+      "name": "Túi Cầm Tay Macrame Đi Biển Vintage",
+      "slug": "tui-cam-tay-macrame-i-bien-vintage",
       "description": "Túi xách tay đan dây cotton thoáng nhẹ vintage, lót trong túi vải thô bố kéo khóa an toàn.",
       "price": 320000,
       "stock": 20,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton dai mộc mạc, quai gỗ sồi tròn\",\"size\":\"30cm x 25cm\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     },
     {
       "id": "40b85c01-8d0e-4172-801f-16ba7de25454",
       "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
-      "name": "Rèm Cửa Sổ Ngăn Phòng Macrame",
-      "slug": "rem-cua-so-ngan-phong-macrame",
+      "name": "Rèm Treo Cửa Macrame Vintage Cỡ Lớn",
+      "slug": "rem-treo-cua-macrame-vintage-co-lon",
       "description": "Rèm ngăn không gian cỡ lớn dệt dây họa tiết chéo thanh lịch kín đáo độc đáo cho homestay decor.",
       "price": 1550000,
       "stock": 2,
       "status": "active",
       "attributes": "{\"material\":\"Sợi cotton xoắn dày 5mm\",\"dimensions\":\"Rộng 1.2m x Cao 2m\",\"weight\":\"3.5kg\"}",
       "created_at": "2026-06-06T13:19:23.359Z",
-      "updated_at": "2026-06-06T13:19:23.359Z"
+      "updated_at": "2026-06-06T14:32:47.530Z"
     }
   ],
   "product_images": [
@@ -1059,7 +1059,7 @@
     {
       "id": "870a5e85-bf73-4d1f-b586-f8fa867dae7c",
       "product_id": "a09ec574-dc9d-48f4-bc65-6571c900eb70",
-      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1602872030267-33f7c4613c75?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
@@ -1073,14 +1073,14 @@
     {
       "id": "36368cd4-d917-4626-942f-3c6411b1407a",
       "product_id": "9c9139e0-149b-4954-94e1-bcf6810990e8",
-      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1602872029708-84fcb208b030?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "a427d21d-83b9-4884-b1b5-21a2cb05721a",
       "product_id": "7388657a-6e53-43cf-bb94-62d823b9654a",
-      "url": "https://images.unsplash.com/photo-1607006342445-5659b8d4f40f?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
@@ -1122,14 +1122,14 @@
     {
       "id": "366dc8ce-26f1-487d-ae87-1ac5f5d41f41",
       "product_id": "92ee47fd-6e3d-4c46-8e2a-983948e9c00a",
-      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "b5cf3a66-978e-438d-9375-91c418dc8be6",
       "product_id": "1a3162ae-6ac7-46f9-a955-994734412006",
-      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1543294001-f7cbfe92237e?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
@@ -1143,70 +1143,70 @@
     {
       "id": "9a569aa4-b17d-406b-8d5e-0f6d73d11782",
       "product_id": "a5efb05e-150c-4b54-b9e8-b16859f3ca9a",
-      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "0d3416c9-5e8b-4181-9fb2-b54fe321aba1",
       "product_id": "e213490d-b333-4497-bc6d-cd4ae906430c",
-      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "1b77bdc0-5b0f-4e81-8bf8-1895a86edfe8",
       "product_id": "5d24198c-6175-4584-ab95-10a7f26164dd",
-      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "81ad5d04-32ac-455e-ae91-acdb570c5d9a",
       "product_id": "ad7b43d5-5fc2-4fcb-b7e5-7d9c417ee65e",
-      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "2418cd0b-5896-4532-a44a-954d1afac5b9",
       "product_id": "be374d05-020e-4805-9cb2-3401b29c7204",
-      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "ae10463b-5eda-41b3-b192-be7b276bdda3",
       "product_id": "4c22f3e0-8b05-411e-9efe-d7ef021cb995",
-      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "8378d56c-e815-43b4-8c36-43a8431f9ee9",
       "product_id": "085c8754-e2c5-4960-a8b8-e9065e11713a",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1581580173663-e38058957805?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "c597bad9-99ab-42fc-8a85-8d695c766818",
       "product_id": "8877554c-d2ee-42dd-9394-8987fd232b27",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "51e6e0ac-47de-4df6-bc9f-930f2a89ba0d",
       "product_id": "bdc8487f-2ea6-4431-a12a-291480b8ff71",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "f9df8ef9-bd15-45fc-9619-9089e633b2f1",
       "product_id": "471cac01-b164-4531-8865-89ea9cb91f74",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
@@ -1220,35 +1220,35 @@
     {
       "id": "e8c6c66d-8dcc-4442-94c1-98ca61b8e6f1",
       "product_id": "0a59ca29-1569-4f3e-8390-bdda6c8b7109",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "8ed872b2-d77e-4812-85e3-e2f059258a50",
       "product_id": "9d80c0aa-fb25-4d70-b594-562d332ac1d2",
-      "url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "6e1b9bf8-9aec-4cfd-8e0a-95cf121da645",
       "product_id": "f1cc9bd2-0850-4733-80ef-64d86c040538",
-      "url": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "97818f72-cb04-480b-b8c7-0a501951404d",
       "product_id": "3bc6db6d-0344-4671-b584-9bc8f4c7c72c",
-      "url": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     },
     {
       "id": "ee3cac8d-6689-4979-bfb0-61916a5d5f8b",
       "product_id": "40b85c01-8d0e-4172-801f-16ba7de25454",
-      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "url": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T13:19:23.359Z"
     }

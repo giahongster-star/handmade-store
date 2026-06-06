@@ -19,7 +19,8 @@ const defaultData = {
   carts: [],
   cart_items: [],
   orders: [],
-  order_items: []
+  order_items: [],
+  users: []
 };
 
 // Global in-memory cache for Vercel execution contexts
@@ -231,6 +232,24 @@ export const run = async (sql, params = []) => {
     return { id: null, changes: initialLen - data.cart_items.length };
   }
 
+  // 13. Insert User
+  if (cleanedSql.startsWith('INSERT INTO users')) {
+    const [id, name, email, password, role] = params;
+    data.users = data.users || [];
+    data.users = data.users.filter(u => u.email !== email);
+    data.users.push({
+      id,
+      name,
+      email,
+      password,
+      role: role || 'user',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    });
+    writeDb(data);
+    return { id, changes: 1 };
+  }
+
   console.warn('Unhandled raw SQL run:', sql);
   return { id: null, changes: 0 };
 };
@@ -429,6 +448,22 @@ export const get = async (sql, params = []) => {
     const [slugOrId1, slugOrId2] = params;
     const order = data.orders.find(o => o.id === slugOrId1 || o.code === slugOrId1 || o.id === slugOrId2 || o.code === slugOrId2);
     return order ? { ...order } : null;
+  }
+
+  // 10. Get User by Email
+  if (cleanedSql.startsWith('SELECT * FROM users WHERE email =')) {
+    const [email] = params;
+    data.users = data.users || [];
+    const user = data.users.find(u => u.email === email);
+    return user ? { ...user } : null;
+  }
+
+  // 11. Get User by ID
+  if (cleanedSql.startsWith('SELECT * FROM users WHERE id =')) {
+    const [id] = params;
+    data.users = data.users || [];
+    const user = data.users.find(u => u.id === id);
+    return user ? { ...user } : null;
   }
 
   console.warn('Unhandled raw SQL get:', sql);

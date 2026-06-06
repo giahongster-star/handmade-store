@@ -2,11 +2,16 @@
 
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
+import { useUser } from '@/context/UserContext';
+import AuthModal from '@/components/AuthModal';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
   const { cart } = useCart();
+  const { user, logout } = useUser();
   const [mounted, setMounted] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Avoid hydration mismatch for client state
   useEffect(() => {
@@ -78,9 +83,58 @@ export default function Header() {
                 </span>
               )}
             </Link>
+
+            {/* Auth section */}
+            {mounted && (
+              <>
+                {!user ? (
+                  <button
+                    id="auth-login-btn"
+                    data-testid="auth-login-btn"
+                    onClick={() => setIsAuthOpen(true)}
+                    className="p-2.5 text-[#2C2A29] hover:text-[#D4A373] transition-colors rounded-full hover:bg-[#F2EFE9] cursor-pointer"
+                    aria-label="Login"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                  </button>
+                ) : (
+                  <div className="relative">
+                    <button
+                      id="user-menu-btn"
+                      data-testid="user-menu-btn"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="flex items-center space-x-1.5 p-2 text-sm font-semibold text-[#2C2A29] hover:text-[#D4A373] transition-colors rounded-full hover:bg-[#F2EFE9] cursor-pointer"
+                    >
+                      <span className="max-w-[100px] truncate">{user.name}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                      </svg>
+                    </button>
+                    {dropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-48 bg-[#FAF9F6] border border-[#EAE6DF] rounded-2xl shadow-xl py-2 z-50 animate-fadeIn">
+                        <button
+                          id="auth-logout-btn"
+                          data-testid="auth-logout-btn"
+                          onClick={() => {
+                            logout();
+                            setDropdownOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2.5 text-sm text-red-600 hover:bg-[#FAF9F6] transition font-medium cursor-pointer"
+                        >
+                          Đăng xuất
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </header>
   );
 }

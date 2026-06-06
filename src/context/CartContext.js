@@ -14,67 +14,77 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({ items: [], subtotal: 0 });
-  const [cartId, setCartId] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Initialize Cart ID from localStorage
+  // Initialize cart from localStorage on mount
   useEffect(() => {
-    const savedCartId = localStorage.getItem('cart_id');
-    fetchCart(savedCartId);
-  }, []);
-
-  const fetchCart = async (id = null) => {
     try {
-      setLoading(true);
-      const headers = {};
-      if (id) {
-        headers['x-cart-id'] = id;
-      }
-
-      const res = await fetch('/api/cart', { headers });
-      const data = await res.json();
-
-      if (data.success) {
-        setCart(data.data);
-        const newCartId = res.headers.get('x-cart-id') || data.data.cart_id;
-        if (newCartId) {
-          localStorage.setItem('cart_id', newCartId);
-          setCartId(newCartId);
+      const savedCart = localStorage.getItem('auracraft_cart');
+      if (savedCart) {
+        const parsed = JSON.parse(savedCart);
+        if (parsed && Array.isArray(parsed.items)) {
+          setCart(parsed);
         }
       }
     } catch (err) {
-      console.error('Error fetching cart:', err);
+      console.error('Error loading cart from localStorage:', err);
     } finally {
       setLoading(false);
     }
+  }, []);
+
+  // Save cart helper
+  const saveCart = (newItems) => {
+    const subtotal = newItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const updatedCart = {
+      items: newItems,
+      subtotal: parseFloat(subtotal.toFixed(2))
+    };
+    setCart(updatedCart);
+    try {
+      localStorage.setItem('auracraft_cart', JSON.stringify(updatedCart));
+    } catch (err) {
+      console.error('Error saving cart to localStorage:', err);
+    }
+    return updatedCart;
   };
 
   const addItem = async (productId, quantity = 1) => {
     try {
       setLoading(true);
-      const headers = { 'Content-Type': 'application/json' };
-      if (cartId) {
-        headers['x-cart-id'] = cartId;
+      const existingItem = cart.items.find(item => item.product_id === productId);
+
+      if (existingItem) {
+        const updatedItems = cart.items.map(item =>
+          item.product_id === productId
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+        saveCart(updatedItems);
+        return { success: true };
       }
 
-      const res = await fetch('/api/cart', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ product_id: productId, quantity })
-      });
+      // Fetch product details for new items
+      const res = await fetch(`/api/products/${productId}`);
       const data = await res.json();
 
-      if (data.success) {
-        setCart(data.data);
-        const newCartId = res.headers.get('x-cart-id') || data.data.cart_id;
-        if (newCartId) {
-          localStorage.setItem('cart_id', newCartId);
-          setCartId(newCartId);
-        }
-        return { success: true };
-      } else {
-        return { success: false, error: data.error };
+      if (!data.success) {
+        return { success: false, error: data.error || 'Sản phẩm không tồn tại' };
       }
+
+      const product = data.data;
+      const newItem = {
+        id: product.id, // Use product ID as cart item ID for simplicity
+        product_id: product.id,
+        quantity,
+        name: product.name,
+        price: product.price,
+        slug: product.slug,
+        primary_image_url: product.images?.find(img => img.is_primary === 1)?.url || product.images?.[0]?.url || ''
+      };
+
+      saveCart([...cart.items, newItem]);
+      return { success: true };
     } catch (err) {
       console.error('Error adding to cart:', err);
       return { success: false, error: err.message };
@@ -86,24 +96,13 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = async (itemId, quantity) => {
     try {
       setLoading(true);
-      const headers = {
-        'Content-Type': 'application/json',
-        'x-cart-id': cartId
-      };
-
-      const res = await fetch(`/api/cart/${itemId}`, {
-        method: 'PUT',
-        headers,
-        body: JSON.stringify({ quantity })
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        setCart(data.data);
-        return { success: true };
-      } else {
-        return { success: false, error: data.error };
-      }
+      const updatedItems = cart.items.map(item =>
+        item.id === itemId
+          ? { ...item, quantity }
+          : item
+      );
+      saveCart(updatedItems);
+      return { success: true };
     } catch (err) {
       console.error('Error updating cart quantity:', err);
       return { success: false, error: err.message };
@@ -115,20 +114,9 @@ export const CartProvider = ({ children }) => {
   const removeItem = async (itemId) => {
     try {
       setLoading(true);
-      const headers = { 'x-cart-id': cartId };
-
-      const res = await fetch(`/api/cart/${itemId}`, {
-        method: 'DELETE',
-        headers
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        setCart(data.data);
-        return { success: true };
-      } else {
-        return { success: false, error: data.error };
-      }
+      const updatedItems = cart.items.filter(item => item.id !== itemId);
+      saveCart(updatedItems);
+      return { success: true };
     } catch (err) {
       console.error('Error removing cart item:', err);
       return { success: false, error: err.message };
@@ -139,10 +127,15 @@ export const CartProvider = ({ children }) => {
 
   const clearCartState = () => {
     setCart({ items: [], subtotal: 0 });
+    try {
+      localStorage.removeItem('auracraft_cart');
+    } catch (err) {
+      console.error('Error clearing cart from localStorage:', err);
+    }
   };
 
   return (
-    <CartContext.Provider value={{ cart, cartId, loading, addItem, updateQuantity, removeItem, fetchCart, clearCartState }}>
+    <CartContext.Provider value={{ cart, loading, addItem, updateQuantity, removeItem, clearCartState }}>
       {children}
     </CartContext.Provider>
   );

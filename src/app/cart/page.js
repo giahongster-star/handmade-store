@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
-  const { cart, cartId, updateQuantity, removeItem, clearCartState, loading: cartLoading } = useCart();
+  const { cart, updateQuantity, removeItem, clearCartState, loading: cartLoading } = useCart();
   const router = useRouter();
 
   const [mounted, setMounted] = useState(false);
@@ -56,7 +56,7 @@ export default function CartPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-cart-id': cartId
+          'x-cart-id': 'local-cart'
         },
         body: JSON.stringify({
           payment_method: paymentMethod,

@@ -8,7 +8,7 @@ export async function POST(request) {
       return NextResponse.json({ success: false, error: 'Cart ID header is missing' }, { status: 400 });
     }
 
-    const { payment_method, shipping_address } = await request.json();
+    const { payment_method, shipping_address, items } = await request.json();
     if (!shipping_address || !shipping_address.recipient_name || !shipping_address.phone || !shipping_address.address_line || !shipping_address.city) {
       return NextResponse.json({ success: false, error: 'Detailed shipping address is required' }, { status: 400 });
     }
@@ -16,7 +16,8 @@ export async function POST(request) {
     const order = await createOrder({
       cartId: cartIdHeader,
       paymentMethod: payment_method,
-      shippingAddress: shipping_address
+      shippingAddress: shipping_address,
+      items: items
     });
 
     return NextResponse.json({ success: true, message: 'Order created successfully', data: order });

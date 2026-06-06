@@ -66,7 +66,8 @@ export default function CartPage() {
             address_line: addressLine,
             city,
             country: 'Vietnam'
-          }
+          },
+          items: items
         })
       });
 

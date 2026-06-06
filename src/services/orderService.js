@@ -4,14 +4,24 @@ import crypto from 'crypto';
 
 const uuid = () => crypto.randomUUID();
 
-export const createOrder = async ({ cartId, paymentMethod = 'cod', shippingAddress }) => {
-  const cart = await getCartDetails(cartId);
-  if (!cart.items || cart.items.length === 0) {
+export const createOrder = async ({ cartId, paymentMethod = 'cod', shippingAddress, items }) => {
+  let orderItems = items;
+  let subtotal = 0;
+
+  if (!orderItems || orderItems.length === 0) {
+    const cart = await getCartDetails(cartId);
+    orderItems = cart.items;
+    subtotal = cart.subtotal;
+  } else {
+    subtotal = orderItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  }
+
+  if (!orderItems || orderItems.length === 0) {
     throw new Error('Giỏ hàng trống');
   }
 
   // Verify and update stocks
-  for (const item of cart.items) {
+  for (const item of orderItems) {
     const prod = await get('SELECT stock FROM products WHERE id = ?', [item.product_id]);
     if (!prod || prod.stock < item.quantity) {
       throw new Error(`Sản phẩm "${item.name}" không đủ hàng trong kho (Còn lại: ${prod ? prod.stock : 0})`);
@@ -19,14 +29,14 @@ export const createOrder = async ({ cartId, paymentMethod = 'cod', shippingAddre
   }
 
   // Deduct stock
-  for (const item of cart.items) {
+  for (const item of orderItems) {
     await run('UPDATE products SET stock = stock - ? WHERE id = ?', [item.quantity, item.product_id]);
   }
 
   const orderId = uuid();
   const orderCode = `ORD-${Date.now().toString().slice(-8)}${Math.floor(100 + Math.random() * 900)}`;
-  const shippingFee = cart.subtotal > 500000 ? 0 : 30000; // Free ship cho đơn hàng trên 500k, ngược lại 30k
-  const totalAmount = cart.subtotal + shippingFee;
+  const shippingFee = subtotal > 500000 ? 0 : 30000; // Free ship cho đơn hàng trên 500k, ngược lại 30k
+  const totalAmount = subtotal + shippingFee;
 
   // Insert Order
   await run(`
@@ -44,7 +54,7 @@ export const createOrder = async ({ cartId, paymentMethod = 'cod', shippingAddre
   ]);
 
   // Insert Order Items
-  for (const item of cart.items) {
+  for (const item of orderItems) {
     await run(`
       INSERT INTO order_items (id, order_id, product_id, price, quantity)
       VALUES (?, ?, ?, ?, ?)

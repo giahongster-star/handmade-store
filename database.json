@@ -158,6 +158,656 @@
       "attributes": "{\"material\":\"Sợi cotton xoắn 4mm, thanh treo gỗ thông tự nhiên\",\"dimensions\":\"Rộng 60cm x Dài 85cm\",\"care\":\"Giũ bụi nhẹ nhàng, không giặt máy\"}",
       "created_at": "2026-06-06T10:23:45.494Z",
       "updated_at": "2026-06-06T10:23:45.494Z"
+    },
+    {
+      "id": "0fd1007a-689c-4c43-99ca-8aefb61ed382",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Cốc Sứ Vẽ Tay Hoa Mai",
+      "slug": "coc-su-ve-tay-hoa-mai",
+      "description": "Cốc uống nước bằng sứ tráng men cao cấp, họa tiết hoa mai được vẽ tay tỉ mỉ từ nghệ nhân Bát Tràng.",
+      "price": 150000,
+      "stock": 25,
+      "status": "active",
+      "attributes": "{\"material\":\"Sứ Bát Tràng\",\"capacity\":\"350ml\",\"heat_resistant\":\"Có\",\"color\":\"Trắng vẽ hoa xanh\"}",
+      "created_at": "2026-06-06T13:19:23.357Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "ad925fc1-0008-465d-9820-ea61bb67d9db",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Chậu Cây Gốm Đất Nung Khắc Nổi",
+      "slug": "chau-cay-gom-at-nung-khac-noi",
+      "description": "Chậu trồng cây để bàn làm từ đất nung tự nhiên, họa tiết hình học được khắc nổi mộc mạc phong cách vintage.",
+      "price": 180000,
+      "stock": 15,
+      "status": "active",
+      "attributes": "{\"material\":\"Đất nung đỏ\",\"dimensions\":\"12cm x 12cm\",\"drainage_hole\":\"Có\",\"weight\":\"400g\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "232b098f-cdf8-4e24-b283-5dfe6acc9f27",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Đĩa Sứ Trưng Bày Men Rạn",
+      "slug": "ia-su-trung-bay-men-ran",
+      "description": "Đĩa sứ tráng men rạn truyền thống cổ kính. Thích hợp để trưng bày phòng khách hoặc đựng trái cây sang trọng.",
+      "price": 320000,
+      "stock": 8,
+      "status": "active",
+      "attributes": "{\"material\":\"Sứ tráng men rạn cổ\",\"dimensions\":\"Đường kính 25cm\",\"style\":\"Cổ điển Đông Dương\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "6eb1d81b-f2ad-45da-834d-aea61023781c",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Chén Trà Gốm Tráng Men Ngọc",
+      "slug": "chen-tra-gom-trang-men-ngoc",
+      "description": "Chén uống trà nhỏ xinh tráng men ngọc bích sáng bóng, viền gốm thô cầm chắc tay cách nhiệt tốt.",
+      "price": 90000,
+      "stock": 40,
+      "status": "active",
+      "attributes": "{\"material\":\"Gốm men ngọc\",\"capacity\":\"60ml\",\"style\":\"Zen Nhật Bản\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "071d2b02-1d14-48aa-aadd-ed42ee0cc30e",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Bình Tỳ Bà Gốm Chu Đậu",
+      "slug": "binh-ty-ba-gom-chu-au",
+      "description": "Bình hoa dáng tỳ bà nghệ thuật vẽ lam cổ điển từ gốm Chu Đậu nổi tiếng. Phù hợp làm quà tặng tân gia đẳng cấp.",
+      "price": 1250000,
+      "stock": 4,
+      "status": "active",
+      "attributes": "{\"material\":\"Gốm Chu Đậu cổ\",\"dimensions\":\"Cao 35cm\",\"decoration\":\"Vẽ tay chim hoa cổ\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "87f31cfe-fabe-4881-a88b-ecbc72918e53",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Bộ Muỗng Nĩa Sứ Vintage",
+      "slug": "bo-muong-nia-su-vintage",
+      "description": "Bộ sản phẩm gồm 4 muỗng và 4 nĩa cán sứ tráng men hoa cúc nhỏ xinh, sang trọng cho bàn ăn gia đình.",
+      "price": 240000,
+      "stock": 12,
+      "status": "active",
+      "attributes": "{\"material\":\"Inox 304 cán sứ tráng men\",\"length\":\"15cm\",\"quantity\":\"8 món\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "19c10972-1c60-4874-a177-be0e7e8053dd",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Tượng Phật Gốm Sa Thạch",
+      "slug": "tuong-phat-gom-sa-thach",
+      "description": "Tượng thiền phật bằng chất liệu gốm sa thạch thô ráp trầm mặc, mang lại cảm giác bình yên thư thái cho bàn trà.",
+      "price": 490000,
+      "stock": 6,
+      "status": "active",
+      "attributes": "{\"material\":\"Sa thạch nung thô\",\"height\":\"18cm\",\"weight\":\"700g\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "d12ae233-99b3-46e5-bf9e-ff4c67efe20c",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Khay Trà Gốm Đất Nung Khảm Chỉ",
+      "slug": "khay-tra-gom-at-nung-kham-chi",
+      "description": "Khay trà chữ nhật bằng đất nung nâu trầm ấm, khảm chỉ đồng mờ quanh mép tinh xảo.",
+      "price": 590000,
+      "stock": 5,
+      "status": "active",
+      "attributes": "{\"material\":\"Đất nung đen khảm chỉ đồng\",\"dimensions\":\"30cm x 20cm\",\"origin\":\"Móng Cái\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "8f5b4064-8b3d-467c-b2ce-915fd3e224e6",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Lọ Hoa Thủy Tinh Vẽ Gốm",
+      "slug": "lo-hoa-thuy-tinh-ve-gom",
+      "description": "Sự kết hợp độc đáo giữa thân thủy tinh thổi thủ công và miệng lọ bọc gốm sần nghệ thuật màu đất.",
+      "price": 195000,
+      "stock": 18,
+      "status": "active",
+      "attributes": "{\"material\":\"Thủy tinh tái chế, gốm sần\",\"height\":\"25cm\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "35de9b73-5cf5-4368-8525-b45d33800756",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Bát Ăn Dặm Gốm Hình Thú",
+      "slug": "bat-an-dam-gom-hinh-thu",
+      "description": "Bát ăn cho bé làm từ đất sét hữu cơ không chứa chì, tạo hình chú gấu nâu ngộ nghĩnh kích thích bé ăn ngon miệng.",
+      "price": 110000,
+      "stock": 30,
+      "status": "active",
+      "attributes": "{\"material\":\"Đất sét hữu cơ nung nhiệt độ cao\",\"safety\":\"BPA-Free, Không chì\",\"dimensions\":\"12cm\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "22d68dfa-79a2-4203-b8cd-67d7f36fabdd",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Bao Da Đựng Passport Khắc Tên",
+      "slug": "bao-da-ung-passport-khac-ten",
+      "description": "Bao da hộ chiếu nhỏ gọn làm từ da bò Veg-tan mộc mạc, khâu chỉ gai chịu lực tốt.",
+      "price": 290000,
+      "stock": 20,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Veg-tan nhập khẩu\",\"dimensions\":\"14cm x 10cm\",\"slots\":\"1 ngăn passport, 2 ngăn thẻ\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "a11f5bb0-f568-4005-9528-104a395baf06",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Ví Sen Đựng Thẻ Da Epsom",
+      "slug": "vi-sen-ung-the-da-epsom",
+      "description": "Ví đựng thẻ và tiền gấp siêu gọn nhẹ dáng ví Sen độc đáo chế tác từ da Epsom chống xước cực tốt.",
+      "price": 390000,
+      "stock": 25,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Epsom cao cấp\",\"dimensions\":\"10cm x 7.5cm\",\"capacity\":\"Đựng 6 thẻ & 10 tờ tiền\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "b8938d1f-e547-4adc-a6cb-2710672bead3",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Móc Khóa Da Bò Sáp Bện Dây",
+      "slug": "moc-khoa-da-bo-sap-ben-day",
+      "description": "Móc khóa đồng thau kết hợp dây da bò sáp bện tay chắc chắn, cá tính.",
+      "price": 850000,
+      "stock": 50,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò sáp, đồng thau nguyên khối\",\"length\":\"12cm\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "75bebe07-cd26-4c2c-9fa4-77f48a4ee791",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Bao Da Bút Ký Cao Cấp",
+      "slug": "bao-da-but-ky-cao-cap",
+      "description": "Ống cắm bút ký cá nhân may tay bằng da Pull-up mềm mại, bảo vệ bút mực đắt giá của bạn tránh trầy xước.",
+      "price": 180000,
+      "stock": 35,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Pull-up thật\",\"capacity\":\"1 bút lớn\",\"length\":\"16cm\"}",
+      "created_at": "2026-06-06T13:19:23.358Z",
+      "updated_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "a2657525-a213-48f8-b06b-5d490c2c6270",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Dây Đồng Hồ Da Đà Điểu Khâu Tay",
+      "slug": "day-ong-ho-da-a-ieu-khau-tay",
+      "description": "Dây đeo đồng hồ từ da đà điểu tự nhiên với hoa văn hạt đặc trưng, lót da bò Zermatt chống thấm mồ hôi hiệu quả.",
+      "price": 450000,
+      "stock": 15,
+      "status": "active",
+      "attributes": "{\"material\":\"Da chân đà điểu, lót Zermatt\",\"strap_size\":\"20mm - 22mm\",\"length\":\"115mm/75mm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "8c3d5bbf-0bb2-4505-908c-e08d7e8c5a80",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Sổ Tay Bọc Da Bò Vintage",
+      "slug": "so-tay-boc-da-bo-vintage",
+      "description": "Cuốn sổ tay có bìa bọc da bò sáp nguyên tấm dày dặn, ruột giấy kraft xi măng viết nhật ký rất có chiều sâu.",
+      "price": 350000,
+      "stock": 18,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò sáp nguyên tấm, giấy Kraft\",\"size\":\"Khổ A5 (200 trang)\",\"layout\":\"Kẻ ngang\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "af967921-2ca5-4fc4-860e-1f0280940864",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Túi Đựng Mỹ Phẩm Da Thật",
+      "slug": "tui-ung-my-pham-da-that",
+      "description": "Túi đựng đồ cá nhân dáng hộp rộng rãi cho các chuyến du lịch, khóa kéo mượt mà chống nước nhẹ.",
+      "price": 690000,
+      "stock": 10,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Mill hạt, lót chống thấm\",\"dimensions\":\"20cm x 12cm x 8cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "69eb3d87-9cc0-4c73-9563-a13c4e6f00a5",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Bao Da Airpods Khâu Đục Tay",
+      "slug": "bao-da-airpods-khau-uc-tay",
+      "description": "Case bảo vệ tai nghe Airpods khâu tay ôm khít thiết bị, kèm móc treo thắt lưng đồng thau tiện lợi.",
+      "price": 220000,
+      "stock": 30,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Buttero Ý\",\"closure\":\"Khuy bấm đồng\",\"compatibility\":\"Airpods Pro / Airpods 3\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "2c66bb84-1577-4a25-bcdf-e99a921f0763",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Thắt Lưng Da Bò Một Lớp Bản Tròn",
+      "slug": "that-lung-da-bo-mot-lop-ban-tron",
+      "description": "Dây nịt da bò nguyên miếng đanh dẻo, đầu khóa kim chất liệu hợp kim chống gỉ mạ màu đồng cổ.",
+      "price": 490000,
+      "stock": 14,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò nguyên tấm một lớp\",\"strap_width\":\"3.8cm\",\"length\":\"115cm - 125cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "983281d2-86f7-4285-b994-75c06247cc8f",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Ví Cầm Tay Clutch Da Epsom Nữ",
+      "slug": "vi-cam-tay-clutch-da-epsom-nu",
+      "description": "Clutch cầm tay nữ sang trọng đựng vừa điện thoại và tiền mặt phẳng, thiết kế thanh lịch tối giản.",
+      "price": 1200000,
+      "stock": 5,
+      "status": "active",
+      "attributes": "{\"material\":\"Da Epsom Ý khâu tay\",\"dimensions\":\"22cm x 13cm x 3cm\",\"hardware\":\"Khóa mạ vàng 18K\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "39a9cc5b-ed1b-4289-b1bf-768083c773ca",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Xà Phòng Sinh Dược Bạc Hà",
+      "slug": "xa-phong-sinh-duoc-bac-ha",
+      "description": "Xà bông thảo dược tự nhiên sản xuất thủ công tại hợp tác xã Sinh Dược, mát lạnh sảng khoái.",
+      "price": 45000,
+      "stock": 100,
+      "status": "active",
+      "attributes": "{\"material\":\"Dầu dừa, tinh dầu bạc hà, mật ong\",\"weight\":\"100g\",\"shelf_life\":\"18 tháng\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "c48367bc-77d1-4089-830f-a0fcfdc5da2f",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Sáp Ong Hoa Oải Hương",
+      "slug": "nen-thom-sap-ong-hoa-oai-huong",
+      "description": "Nến sáp ong tự nhiên bấc cotton không khói, tinh dầu oải hương Pháp nhẹ nhàng dễ ngủ.",
+      "price": 270000,
+      "stock": 15,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp ong nguyên chất, bấc cotton\",\"burn_time\":\"30 giờ\",\"scent\":\"Lavender & Rosemary\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "a09ec574-dc9d-48f4-bc65-6571c900eb70",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Hoa Hồng Ngọt Ngào",
+      "slug": "nen-thom-hoa-hong-ngot-ngao",
+      "description": "Nến thơm đựng trong hũ thủy tinh Amber mộc mạc, hương hoa hồng Bungari lãng mạn.",
+      "price": 260000,
+      "stock": 22,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp đậu nành bấc gỗ kêu lách tách\",\"weight\":\"180g\",\"scent_notes\":\"Rose, Red Apple, Amber\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "ff46bbd0-3c6a-4758-858e-b116a36621a0",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Tinh Dầu Treo Xe Bưởi Hồng",
+      "slug": "tinh-dau-treo-xe-buoi-hong",
+      "description": "Lọ khuếch tán tinh dầu nắp gỗ treo xe ô tô hoặc tủ quần áo khử mùi, mang lại sự mát lành từ vỏ bưởi.",
+      "price": 120000,
+      "stock": 45,
+      "status": "active",
+      "attributes": "{\"material\":\"Tinh dầu bưởi hồng nguyên chất\",\"capacity\":\"10ml\",\"durability\":\"2-3 tháng sử dụng\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "9c9139e0-149b-4954-94e1-bcf6810990e8",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Trà Xanh Thanh Mát",
+      "slug": "nen-thom-tra-xanh-thanh-mat",
+      "description": "Hương thơm sảng khoái mát lành của lá trà xanh sương sớm kết hợp hoa nhài dịu nhẹ.",
+      "price": 240000,
+      "stock": 18,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp dừa sáp đậu nành bấc cotton\",\"weight\":\"150g\",\"scent_notes\":\"Green Tea, Jasmine, Musk\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "7388657a-6e53-43cf-bb94-62d823b9654a",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Xà Phòng Than Tre Trị Mụn",
+      "slug": "xa-phong-than-tre-tri-mun",
+      "description": "Xà bông than tre hoạt tính thải độc da body, giúp giảm mụn lưng và làm sạch sâu tế bào chết.",
+      "price": 55000,
+      "stock": 60,
+      "status": "active",
+      "attributes": "{\"material\":\"Than tre hoạt tính, dầu ô liu\",\"weight\":\"90g\",\"type\":\"Dùng cho body & mặt\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "e3d50b8d-c241-43b9-82da-30a350c1551e",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Trụ Decor Bọt Biển",
+      "slug": "nen-tru-decor-bot-bien",
+      "description": "Nến thơm tạo hình khối vuông bọt biển dùng để decor bàn làm việc cực đẹp, hương gỗ vani ngọt ngào.",
+      "price": 180000,
+      "stock": 10,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp paraffin cọ tự nhiên\",\"dimensions\":\"6cm x 6cm\",\"scent\":\"Vanilla & Coffee\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "11ae7c4b-0e64-479a-bd7e-771d89ff8580",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Sáp Thơm Treo Tủ Quần Áo",
+      "slug": "sap-thom-treo-tu-quan-ao",
+      "description": "Miếng sáp treo đính kèm hoa khô thiên nhiên trang trí, giúp lưu hương tủ quần áo thơm ngát.",
+      "price": 85000,
+      "stock": 40,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp đậu nành, hoa cúc khô, tinh dầu hoa cam\",\"duration\":\"2 tháng\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "c6bfc05c-95ef-45d0-b19e-2afd76449cff",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Ly Nghệ Thuật Hoa Khô",
+      "slug": "nen-ly-nghe-thuat-hoa-kho",
+      "description": "Ly nến gel thủy tinh trong suốt ôm lấy những đóa hoa cúc vàng khô lấp lánh như bức tranh nghệ thuật.",
+      "price": 350000,
+      "stock": 8,
+      "status": "active",
+      "attributes": "{\"material\":\"Nến gel trong suốt bấc không chì\",\"burn_time\":\"40 giờ\",\"scent\":\"Citrus & Amber\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "b68bae0b-5a15-4409-a183-553a5e2a5bad",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Xịt Thơm Phòng Sả Chanh Đuổi Muỗi",
+      "slug": "xit-thom-phong-sa-chanh-uoi-muoi",
+      "description": "Xịt kháng khuẩn khử mùi phòng tinh dầu sả chanh tự nhiên, hỗ trợ xua đuổi côn trùng hiệu quả.",
+      "price": 140000,
+      "stock": 30,
+      "status": "active",
+      "attributes": "{\"material\":\"Tinh dầu sả chanh chưng cất hơi nước\",\"capacity\":\"100ml\",\"safety\":\"Phù hợp nhà có trẻ nhỏ\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "d86e1587-7750-45c5-986d-9aebd661c0a8",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Dây Chuyền Mặt Đá Mặt Trăng",
+      "slug": "day-chuyen-mat-a-mat-trang",
+      "description": "Dây chuyền bạc đính đá Moonstone lấp lánh phản quang xanh huyền ảo phong cách bohemian.",
+      "price": 480000,
+      "stock": 12,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925, đá Moonstone tự nhiên\",\"chain_length\":\"40cm + 5cm xích chờ\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "92ee47fd-6e3d-4c46-8e2a-983948e9c00a",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Nhẫn Bạc Chỉ Đơn Giản May Mắn",
+      "slug": "nhan-bac-chi-on-gian-may-man",
+      "description": "Chiếc nhẫn bạc trơn dáng mảnh ổ khóa xoắn đơn giản nhưng mang ý nghĩa bảo vệ bình an.",
+      "price": 190000,
+      "stock": 30,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925 nguyên chất\",\"size\":\"Ni tay từ 10 đến 16\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "1a3162ae-6ac7-46f9-a955-994734412006",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Lắc Chân Hạt Đậu Bạc Dễ Thương",
+      "slug": "lac-chan-hat-au-bac-de-thuong",
+      "description": "Lắc chân xích mảnh kết hợp các hạt đậu bạc nhỏ tròn lăn tăn vui mắt ôm chân.",
+      "price": 280000,
+      "stock": 15,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925 xi bạch kim\",\"length\":\"22cm + 3cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "4961799c-6a2d-4e1f-8fd7-3442af8893de",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Kính Mắt Gọng Gỗ Mun Thủ Công",
+      "slug": "kinh-mat-gong-go-mun-thu-cong",
+      "description": "Kính râm gọng làm hoàn toàn bằng gỗ mun đen sọc tự nhiên đánh bóng dầu oliu cực chất.",
+      "price": 1650000,
+      "stock": 3,
+      "status": "active",
+      "attributes": "{\"material\":\"Gỗ mun thật, tròng kính polarized chống UV400\",\"weight\":\"28g\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "a5efb05e-150c-4b54-b9e8-b16859f3ca9a",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Vòng Cổ Choker Hạt Cườm Biển",
+      "slug": "vong-co-choker-hat-cuom-bien",
+      "description": "Choker cá tính cho mùa hè biển đan từ hạt cườm cẩm thạch lam kết hợp vỏ sò biển tự nhiên.",
+      "price": 95000,
+      "stock": 50,
+      "status": "active",
+      "attributes": "{\"material\":\"Hạt cườm cẩm thạch, vỏ điệp tự nhiên\",\"length\":\"38cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "e213490d-b333-4497-bc6d-cd4ae906430c",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Khuyên Tai Tròn Bạc Phay Xước",
+      "slug": "khuyen-tai-tron-bac-phay-xuoc",
+      "description": "Khuyên tai khoen tròn basic được mài phay xước bề mặt hiện đại chống trầy.",
+      "price": 210000,
+      "stock": 25,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925 nguyên chất\",\"diameter\":\"20mm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "5d24198c-6175-4584-ab95-10a7f26164dd",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Vòng Tay Chỉ Đỏ Kim Cương Nhân Tạo",
+      "slug": "vong-tay-chi-o-kim-cuong-nhan-tao",
+      "description": "Vòng tay chỉ đỏ phong thủy may mắn đính viên đá CZ bạc 3 ly lấp lánh như kim cương.",
+      "price": 150000,
+      "stock": 80,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi dù chỉ đỏ Thái Lan, chốt bạc S925, đá CZ\",\"size\":\"Tự điều chỉnh dây\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "ad7b43d5-5fc2-4fcb-b7e5-7d9c417ee65e",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Trâm Cài Tóc Gỗ Đào Khắc Sen",
+      "slug": "tram-cai-toc-go-ao-khac-sen",
+      "description": "Trâm gỗ đào tự nhiên chạm khắc đóa sen nở rộ mộc mạc, phù hợp diện cổ phục hoặc áo dài.",
+      "price": 130000,
+      "stock": 20,
+      "status": "active",
+      "attributes": "{\"material\":\"Gỗ đào tự nhiên\",\"length\":\"18cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "be374d05-020e-4805-9cb2-3401b29c7204",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Nhẫn Bạc Đính Đá Lapis Xanh Dương",
+      "slug": "nhan-bac-inh-a-lapis-xanh-duong",
+      "description": "Chiếc nhẫn bạc rèn thủ công đính viên đá Lapis Lazuli xanh thẳm như bầu trời đêm đầy sao.",
+      "price": 490000,
+      "stock": 6,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925, đá Lapis Lazuli tự nhiên\",\"style\":\"Retro Tây Tạng\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "4c22f3e0-8b05-411e-9efe-d7ef021cb995",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Vòng Dây Da Unisex Đính Charm Đồng",
+      "slug": "vong-day-da-unisex-inh-charm-ong",
+      "description": "Dây đeo cổ bằng da bò bện nhiều sợi nhỏ mềm, đính kèm mặt charm hình mỏ neo đồng thau cổ điển.",
+      "price": 190000,
+      "stock": 30,
+      "status": "active",
+      "attributes": "{\"material\":\"Dây da bò, charm đồng chốt thép\",\"length\":\"45cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "085c8754-e2c5-4960-a8b8-e9065e11713a",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Giá Treo Cây Macrame Đơn",
+      "slug": "gia-treo-cay-macrame-on",
+      "description": "Giỏ thắt dây treo chậu cây trang trí ban công hoặc cửa sổ phong cách sân vườn xinh xắn.",
+      "price": 180000,
+      "stock": 35,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton trắng ngà 3mm, vòng gỗ sồi\",\"length\":\"90cm\",\"max_load\":\"3kg\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "8877554c-d2ee-42dd-9394-8987fd232b27",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Thảm Treo Đầu Giường Macrame Lá",
+      "slug": "tham-treo-au-giuong-macrame-la",
+      "description": "Tranh macrame kết hình các chiếc lá thông đan xen nhiều gam màu vintage đất ấm áp.",
+      "price": 420000,
+      "stock": 12,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton nhuộm hữu cơ, cành thông tự nhiên\",\"width\":\"50cm\",\"height\":\"65cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "bdc8487f-2ea6-4431-a12a-291480b8ff71",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Đế Lót Ly Macrame Tua Rua",
+      "slug": "e-lot-ly-macrame-tua-rua",
+      "description": "Miếng lót cốc thắt dây cotton bo viền tua rua bảo vệ mặt bàn trà chống xước cách nhiệt tốt.",
+      "price": 35000,
+      "stock": 120,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton dẹt mềm\",\"diameter\":\"15cm cả viền\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "471cac01-b164-4531-8865-89ea9cb91f74",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Kệ Gỗ Treo Tường Dây Thắt",
+      "slug": "ke-go-treo-tuong-day-that",
+      "description": "Kệ gỗ thông tự nhiên treo tường nâng đỡ bằng hệ thống dây thắt Macrame chắc chắn nghệ thuật.",
+      "price": 290000,
+      "stock": 15,
+      "status": "active",
+      "attributes": "{\"material\":\"Gỗ thông ghép thanh 2cm, sợi cotton 4mm\",\"dimensions\":\"40cm x 15cm x 50cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "9c8d0905-5ebe-4b4d-8eb0-3ae6679d5aaf",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Vòng Bắt Giấc Mơ Dreamcatcher Boho",
+      "slug": "vong-bat-giac-mo-dreamcatcher-boho",
+      "description": "Dreamcatcher thắt nút kết hợp hạt gỗ và lông vũ bay bổng, đem lại giấc ngủ an nhiên tinh khôi.",
+      "price": 220000,
+      "stock": 25,
+      "status": "active",
+      "attributes": "{\"material\":\"Vành mây tự nhiên, sợi đan, hạt gỗ, lông vũ\",\"diameter\":\"20cm\",\"length\":\"55cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "0a59ca29-1569-4f3e-8390-bdda6c8b7109",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Võng Treo Mèo Macrame Thư Giãn",
+      "slug": "vong-treo-meo-macrame-thu-gian",
+      "description": "Chiếc võng treo xinh xắn êm ái cho thú cưng đan dệt chắc chắn chịu lực lên tới 8kg.",
+      "price": 380000,
+      "stock": 8,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton chịu lực 4mm, đệm lót nỉ nhung\",\"length\":\"120cm\",\"ring_diameter\":\"35cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "9d80c0aa-fb25-4d70-b594-562d332ac1d2",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Đèn Ngủ Thả Trần Macrame",
+      "slug": "en-ngu-tha-tran-macrame",
+      "description": "Chao đèn ngủ thắt dây rủ tạo bóng nắng lấp lánh dịu kỳ dịu ấm áp cho phòng ngủ boho.",
+      "price": 650000,
+      "stock": 4,
+      "status": "active",
+      "attributes": "{\"material\":\"Khung thép sơn tĩnh điện, sợi cotton\",\"diameter\":\"30cm\",\"height\":\"40cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "f1cc9bd2-0850-4733-80ef-64d86c040538",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Gương Decor Tròn Viền Macrame",
+      "slug": "guong-decor-tron-vien-macrame",
+      "description": "Gương soi treo tường trang trí phòng khách viền dệt ren dây tua rua sang xịn bừng sáng không gian.",
+      "price": 390000,
+      "stock": 10,
+      "status": "active",
+      "attributes": "{\"material\":\"Gương Bỉ chống mốc, sợi dệt cotton\",\"mirror_diameter\":\"25cm\",\"total_diameter\":\"40cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "3bc6db6d-0344-4671-b584-9bc8f4c7c72c",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Túi Xách Nữ Macrame Đi Biển",
+      "slug": "tui-xach-nu-macrame-i-bien",
+      "description": "Túi xách tay đan dây cotton thoáng nhẹ vintage, lót trong túi vải thô bố kéo khóa an toàn.",
+      "price": 320000,
+      "stock": 20,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton dai mộc mạc, quai gỗ sồi tròn\",\"size\":\"30cm x 25cm\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "40b85c01-8d0e-4172-801f-16ba7de25454",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Rèm Cửa Sổ Ngăn Phòng Macrame",
+      "slug": "rem-cua-so-ngan-phong-macrame",
+      "description": "Rèm ngăn không gian cỡ lớn dệt dây họa tiết chéo thanh lịch kín đáo độc đáo cho homestay decor.",
+      "price": 1550000,
+      "stock": 2,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton xoắn dày 5mm\",\"dimensions\":\"Rộng 1.2m x Cao 2m\",\"weight\":\"3.5kg\"}",
+      "created_at": "2026-06-06T13:19:23.359Z",
+      "updated_at": "2026-06-06T13:19:23.359Z"
     }
   ],
   "product_images": [
@@ -251,6 +901,356 @@
       "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80",
       "is_primary": 1,
       "created_at": "2026-06-06T10:23:45.495Z"
+    },
+    {
+      "id": "e4a63c9e-7d4b-4372-a5bd-4ac4c7706ff0",
+      "product_id": "0fd1007a-689c-4c43-99ca-8aefb61ed382",
+      "url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "3c519781-a519-40fe-86fb-af33b9cddb5e",
+      "product_id": "ad925fc1-0008-465d-9820-ea61bb67d9db",
+      "url": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "cc30b1f4-2d56-4fd4-afa4-57730cf5a3e5",
+      "product_id": "232b098f-cdf8-4e24-b283-5dfe6acc9f27",
+      "url": "https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "32f44385-f57f-4478-bba3-c31d4b42633d",
+      "product_id": "6eb1d81b-f2ad-45da-834d-aea61023781c",
+      "url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "52b273ce-40c7-4d77-b732-346f85b9a375",
+      "product_id": "071d2b02-1d14-48aa-aadd-ed42ee0cc30e",
+      "url": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "62cf5cc0-adfc-4041-83f9-4762f8c4aa0b",
+      "product_id": "87f31cfe-fabe-4881-a88b-ecbc72918e53",
+      "url": "https://images.unsplash.com/photo-1543510473-ac2c35329a28?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "42b55cf2-d01c-4c74-8cd5-aa675754827e",
+      "product_id": "19c10972-1c60-4874-a177-be0e7e8053dd",
+      "url": "https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "897715e8-c5a6-4e40-9a86-3ab3c254d476",
+      "product_id": "d12ae233-99b3-46e5-bf9e-ff4c67efe20c",
+      "url": "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "f6391d83-4e1a-4d9e-9291-7468cb647238",
+      "product_id": "8f5b4064-8b3d-467c-b2ce-915fd3e224e6",
+      "url": "https://images.unsplash.com/photo-1581781898089-9157cf168f5c?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "0c0f14aa-b50f-47c5-8478-da4de875c1d1",
+      "product_id": "35de9b73-5cf5-4368-8525-b45d33800756",
+      "url": "https://images.unsplash.com/photo-1594911774802-8822a7079ae1?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "ea59ea6a-6e55-4e33-941f-1fc9dd3eebeb",
+      "product_id": "22d68dfa-79a2-4203-b8cd-67d7f36fabdd",
+      "url": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "5a54fff8-4d00-400d-b3e6-0e0010b9ffce",
+      "product_id": "a11f5bb0-f568-4005-9528-104a395baf06",
+      "url": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "b1fbc545-daee-45b7-ad76-e96eec2a1637",
+      "product_id": "b8938d1f-e547-4adc-a6cb-2710672bead3",
+      "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "7c4cc5e3-5514-4cf7-ac42-52aff7016ca8",
+      "product_id": "75bebe07-cd26-4c2c-9fa4-77f48a4ee791",
+      "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.358Z"
+    },
+    {
+      "id": "e732e7ca-d722-4d14-9f63-de6969c451e3",
+      "product_id": "a2657525-a213-48f8-b06b-5d490c2c6270",
+      "url": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "1bbcd56d-7f49-42bb-a241-a51d4fb563aa",
+      "product_id": "8c3d5bbf-0bb2-4505-908c-e08d7e8c5a80",
+      "url": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "9c28976b-4823-4637-b34f-5d9a07eb4b66",
+      "product_id": "af967921-2ca5-4fc4-860e-1f0280940864",
+      "url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "2a45d455-b09a-4fba-8aa2-67c8c5922904",
+      "product_id": "69eb3d87-9cc0-4c73-9563-a13c4e6f00a5",
+      "url": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "eacf7d60-0d8b-4694-9ee9-7ce0e0a204d8",
+      "product_id": "2c66bb84-1577-4a25-bcdf-e99a921f0763",
+      "url": "https://images.unsplash.com/photo-1624224971170-2f84fed5eb5e?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "2204ca73-c81a-4d48-93b8-840f46ecda5a",
+      "product_id": "983281d2-86f7-4285-b994-75c06247cc8f",
+      "url": "https://images.unsplash.com/photo-1566150905458-1bf1fc15aae9?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "66c615c3-09b9-4037-87fc-9d46dc8059c6",
+      "product_id": "39a9cc5b-ed1b-4289-b1bf-768083c773ca",
+      "url": "https://images.unsplash.com/photo-1607006342445-5659b8d4f40f?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "cb8e8b81-189f-4466-a92f-cc2194ce157e",
+      "product_id": "c48367bc-77d1-4089-830f-a0fcfdc5da2f",
+      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "870a5e85-bf73-4d1f-b586-f8fa867dae7c",
+      "product_id": "a09ec574-dc9d-48f4-bc65-6571c900eb70",
+      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "a05c6e03-cfd4-4027-ae05-9338fae13274",
+      "product_id": "ff46bbd0-3c6a-4758-858e-b116a36621a0",
+      "url": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "36368cd4-d917-4626-942f-3c6411b1407a",
+      "product_id": "9c9139e0-149b-4954-94e1-bcf6810990e8",
+      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "a427d21d-83b9-4884-b1b5-21a2cb05721a",
+      "product_id": "7388657a-6e53-43cf-bb94-62d823b9654a",
+      "url": "https://images.unsplash.com/photo-1607006342445-5659b8d4f40f?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "74228434-6fa4-4715-bbf8-6937b30a868c",
+      "product_id": "e3d50b8d-c241-43b9-82da-30a350c1551e",
+      "url": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "76fb27c1-5708-4623-8e67-533514dff6fb",
+      "product_id": "11ae7c4b-0e64-479a-bd7e-771d89ff8580",
+      "url": "https://images.unsplash.com/photo-1508747703725-719ae2c73ee0?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "6c842b1e-eb58-4fba-ab02-be88f7e9d520",
+      "product_id": "c6bfc05c-95ef-45d0-b19e-2afd76449cff",
+      "url": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "4f0fb5a7-2a63-4704-be1c-e2f760b5d61c",
+      "product_id": "b68bae0b-5a15-4409-a183-553a5e2a5bad",
+      "url": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "435b3cdb-5e68-4006-920f-01c516ee9cd4",
+      "product_id": "d86e1587-7750-45c5-986d-9aebd661c0a8",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "366dc8ce-26f1-487d-ae87-1ac5f5d41f41",
+      "product_id": "92ee47fd-6e3d-4c46-8e2a-983948e9c00a",
+      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "b5cf3a66-978e-438d-9375-91c418dc8be6",
+      "product_id": "1a3162ae-6ac7-46f9-a955-994734412006",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "d20a65ba-1b53-4730-87d4-c316e46841b2",
+      "product_id": "4961799c-6a2d-4e1f-8fd7-3442af8893de",
+      "url": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "9a569aa4-b17d-406b-8d5e-0f6d73d11782",
+      "product_id": "a5efb05e-150c-4b54-b9e8-b16859f3ca9a",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "0d3416c9-5e8b-4181-9fb2-b54fe321aba1",
+      "product_id": "e213490d-b333-4497-bc6d-cd4ae906430c",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "1b77bdc0-5b0f-4e81-8bf8-1895a86edfe8",
+      "product_id": "5d24198c-6175-4584-ab95-10a7f26164dd",
+      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "81ad5d04-32ac-455e-ae91-acdb570c5d9a",
+      "product_id": "ad7b43d5-5fc2-4fcb-b7e5-7d9c417ee65e",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "2418cd0b-5896-4532-a44a-954d1afac5b9",
+      "product_id": "be374d05-020e-4805-9cb2-3401b29c7204",
+      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "ae10463b-5eda-41b3-b192-be7b276bdda3",
+      "product_id": "4c22f3e0-8b05-411e-9efe-d7ef021cb995",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "8378d56c-e815-43b4-8c36-43a8431f9ee9",
+      "product_id": "085c8754-e2c5-4960-a8b8-e9065e11713a",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "c597bad9-99ab-42fc-8a85-8d695c766818",
+      "product_id": "8877554c-d2ee-42dd-9394-8987fd232b27",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "51e6e0ac-47de-4df6-bc9f-930f2a89ba0d",
+      "product_id": "bdc8487f-2ea6-4431-a12a-291480b8ff71",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "f9df8ef9-bd15-45fc-9619-9089e633b2f1",
+      "product_id": "471cac01-b164-4531-8865-89ea9cb91f74",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "30d1e6e8-5d7d-4475-ab89-dbaed7711666",
+      "product_id": "9c8d0905-5ebe-4b4d-8eb0-3ae6679d5aaf",
+      "url": "https://images.unsplash.com/photo-1508247967583-7d982ea00926?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "e8c6c66d-8dcc-4442-94c1-98ca61b8e6f1",
+      "product_id": "0a59ca29-1569-4f3e-8390-bdda6c8b7109",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "8ed872b2-d77e-4812-85e3-e2f059258a50",
+      "product_id": "9d80c0aa-fb25-4d70-b594-562d332ac1d2",
+      "url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "6e1b9bf8-9aec-4cfd-8e0a-95cf121da645",
+      "product_id": "f1cc9bd2-0850-4733-80ef-64d86c040538",
+      "url": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "97818f72-cb04-480b-b8c7-0a501951404d",
+      "product_id": "3bc6db6d-0344-4671-b584-9bc8f4c7c72c",
+      "url": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
+    },
+    {
+      "id": "ee3cac8d-6689-4979-bfb0-61916a5d5f8b",
+      "product_id": "40b85c01-8d0e-4172-801f-16ba7de25454",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T13:19:23.359Z"
     }
   ],
   "carts": [],

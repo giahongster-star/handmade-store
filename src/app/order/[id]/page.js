@@ -98,7 +98,7 @@ export default function OrderDetailPage() {
         <div className="bg-[#FAF9F6] px-6 py-6 border-b border-[#EAE6DF] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <span className="text-xs uppercase tracking-wider text-[#8C867E]">Mã đơn hàng</span>
-            <p className="text-lg font-bold text-[#1A1918]">{order.code}</p>
+            <p data-testid="order-code" data-order-code={order.code} data-order-id={order.id} className="text-lg font-bold text-[#1A1918]">{order.code}</p>
           </div>
           <div>
             <span className="text-xs uppercase tracking-wider text-[#8C867E]">Trạng thái đơn hàng</span>
@@ -140,7 +140,7 @@ export default function OrderDetailPage() {
             </div>
             <div className="flex justify-between text-base font-bold text-[#1A1918] pt-2 border-t border-dashed border-[#EAE6DF]">
               <span>Tổng thanh toán:</span>
-              <span className="text-[#C2410C] text-lg">{formatPrice(order.total_amount)}</span>
+              <span data-testid="order-total" data-value={order.total_amount} className="text-[#C2410C] text-lg">{formatPrice(order.total_amount)}</span>
             </div>
           </div>
 
@@ -177,7 +177,7 @@ export default function OrderDetailPage() {
       </div>
 
       <div className="text-center mt-10">
-        <Link href="/" className="px-8 py-3.5 bg-[#1A1918] hover:bg-[#D4A373] text-white rounded-full font-semibold transition shadow hover:shadow-md">
+        <Link href="/" data-testid="continue-shopping-btn" className="px-8 py-3.5 bg-[#1A1918] hover:bg-[#D4A373] text-white rounded-full font-semibold transition shadow hover:shadow-md">
           Tiếp Tục Mua Sắm
         </Link>
       </div>

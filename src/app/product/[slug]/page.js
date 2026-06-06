@@ -129,12 +129,12 @@ export default function ProductDetailPage() {
             <span className="text-xs uppercase tracking-[0.2em] text-[#8C867E] font-semibold block mb-2">
               {product.category_name}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918] leading-tight mb-4">
+            <h1 data-testid="product-title" data-product-id={product.id} className="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918] leading-tight mb-4">
               {product.name}
             </h1>
 
             <div className="flex items-center space-x-3 mb-6">
-              <span className="text-2xl font-bold text-[#C2410C]">
+              <span data-testid="product-price" data-price={product.price} className="text-2xl font-bold text-[#C2410C]">
                 {formatPrice(product.price)}
               </span>
               <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
@@ -171,13 +171,15 @@ export default function ProductDetailPage() {
                 <span className="text-sm text-[#8C867E]">Số lượng:</span>
                 <div className="flex items-center border border-[#EAE6DF] rounded-xl overflow-hidden bg-[#FAF9F6]">
                   <button
+                    data-testid="quantity-decrement"
                     onClick={() => setQuantity(q => Math.max(1, q - 1))}
                     className="px-3.5 py-2 text-[#5C5752] hover:bg-[#F2EFE9] transition font-bold"
                   >
                     -
                   </button>
-                  <span className="px-4 py-2 font-medium text-sm text-[#2C2A29]">{quantity}</span>
+                  <span data-testid="quantity-value" className="px-4 py-2 font-medium text-sm text-[#2C2A29]">{quantity}</span>
                   <button
+                    data-testid="quantity-increment"
                     onClick={() => setQuantity(q => Math.min(product.stock, q + 1))}
                     className="px-3.5 py-2 text-[#5C5752] hover:bg-[#F2EFE9] transition font-bold"
                   >
@@ -187,6 +189,9 @@ export default function ProductDetailPage() {
               </div>
 
               <button
+                id="add-to-cart-main"
+                data-testid="add-to-cart-main"
+                data-product-id={product.id}
                 disabled={adding}
                 onClick={handleAddToCart}
                 className="w-full py-4 bg-[#1A1918] hover:bg-[#D4A373] text-white rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2"

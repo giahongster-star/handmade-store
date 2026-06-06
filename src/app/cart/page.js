@@ -115,7 +115,7 @@ export default function CartPage() {
           {/* Cart Items List */}
           <div className="lg:col-span-7 space-y-4">
             {items.map((item) => (
-              <div key={item.id} className="flex gap-4 bg-white p-4 rounded-2xl border border-[#EAE6DF] shadow-sm relative overflow-hidden group">
+              <div key={item.id} data-testid="cart-item-row" data-product-id={item.id} className="flex gap-4 bg-white p-4 rounded-2xl border border-[#EAE6DF] shadow-sm relative overflow-hidden group">
                 <div className="w-24 h-24 rounded-xl overflow-hidden bg-[#FAF9F6] border border-[#FAF9F6] flex-shrink-0">
                   <img src={item.primary_image_url} alt={item.name} className="w-full h-full object-cover" />
                 </div>
@@ -133,13 +133,17 @@ export default function CartPage() {
                     {/* Quantity Selector */}
                     <div className="flex items-center border border-[#EAE6DF] rounded-lg overflow-hidden bg-[#FAF9F6]">
                       <button
+                        data-testid="cart-item-dec"
+                        data-product-id={item.id}
                         onClick={() => handleQuantityChange(item.id, item.quantity, -1)}
                         className="px-2.5 py-1 text-[#5C5752] hover:bg-[#F2EFE9] transition font-bold"
                       >
                         -
                       </button>
-                      <span className="px-3 py-1 font-medium text-xs text-[#2C2A29]">{item.quantity}</span>
+                      <span data-testid="cart-item-qty" className="px-3 py-1 font-medium text-xs text-[#2C2A29]">{item.quantity}</span>
                       <button
+                        data-testid="cart-item-inc"
+                        data-product-id={item.id}
                         onClick={() => handleQuantityChange(item.id, item.quantity, 1)}
                         className="px-2.5 py-1 text-[#5C5752] hover:bg-[#F2EFE9] transition font-bold"
                       >
@@ -149,6 +153,8 @@ export default function CartPage() {
 
                     {/* Delete item */}
                     <button
+                      data-testid="cart-item-remove"
+                      data-product-id={item.id}
                       onClick={() => handleRemove(item.id)}
                       className="text-xs text-red-500 hover:text-red-700 transition font-medium cursor-pointer"
                     >
@@ -168,11 +174,11 @@ export default function CartPage() {
             <div className="space-y-3 text-sm border-b border-[#F2EFE9] pb-4">
               <div className="flex justify-between text-[#5C5752]">
                 <span>Tạm tính:</span>
-                <span>{formatPrice(subtotal)}</span>
+                <span data-testid="cart-subtotal" data-value={subtotal}>{formatPrice(subtotal)}</span>
               </div>
               <div className="flex justify-between text-[#5C5752]">
                 <span>Vận chuyển:</span>
-                <span>{shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}</span>
+                <span data-testid="cart-shipping" data-value={shippingFee}>{shippingFee === 0 ? 'Miễn phí' : formatPrice(shippingFee)}</span>
               </div>
               {shippingFee > 0 && (
                 <p className="text-[10px] text-[#8C867E] text-right italic">
@@ -181,7 +187,7 @@ export default function CartPage() {
               )}
               <div className="flex justify-between text-base font-bold text-[#1A1918] pt-2">
                 <span>Tổng cộng:</span>
-                <span className="text-[#C2410C]">{formatPrice(total)}</span>
+                <span data-testid="cart-total" data-value={total} className="text-[#C2410C]">{formatPrice(total)}</span>
               </div>
             </div>
 
@@ -193,6 +199,8 @@ export default function CartPage() {
                 <input
                   type="text"
                   required
+                  id="checkout-name"
+                  data-testid="checkout-name"
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   className="w-full bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#D4A373]"
@@ -204,6 +212,8 @@ export default function CartPage() {
                 <input
                   type="tel"
                   required
+                  id="checkout-phone"
+                  data-testid="checkout-phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#D4A373]"
@@ -216,6 +226,8 @@ export default function CartPage() {
                   <input
                     type="text"
                     required
+                    id="checkout-address"
+                    data-testid="checkout-address"
                     value={addressLine}
                     onChange={(e) => setAddressLine(e.target.value)}
                     className="w-full bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#D4A373]"
@@ -227,6 +239,8 @@ export default function CartPage() {
                   <input
                     type="text"
                     required
+                    id="checkout-city"
+                    data-testid="checkout-city"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     className="w-full bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#D4A373]"
@@ -245,6 +259,8 @@ export default function CartPage() {
                     <input
                       type="radio"
                       name="payment_method"
+                      id="payment-cod"
+                      data-testid="payment-cod"
                       value="cod"
                       checked={paymentMethod === 'cod'}
                       onChange={() => setPaymentMethod('cod')}
@@ -259,6 +275,8 @@ export default function CartPage() {
                     <input
                       type="radio"
                       name="payment_method"
+                      id="payment-bank"
+                      data-testid="payment-bank"
                       value="bank_transfer"
                       checked={paymentMethod === 'bank_transfer'}
                       onChange={() => setPaymentMethod('bank_transfer')}
@@ -273,6 +291,8 @@ export default function CartPage() {
               {/* Submit Checkout */}
               <button
                 type="submit"
+                id="place-order-btn"
+                data-testid="place-order-btn"
                 disabled={submitting}
                 className="w-full mt-4 py-4 bg-[#C2410C] hover:bg-[#D4A373] text-white rounded-full font-bold transition shadow flex items-center justify-center space-x-2 cursor-pointer"
               >

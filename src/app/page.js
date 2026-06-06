@@ -100,6 +100,8 @@ function HomePageContent() {
           <div className="max-w-md mx-auto relative">
             <input
               type="text"
+              id="search-input"
+              data-testid="search-input"
               placeholder="Tìm kiếm sản phẩm độc đáo của bạn..."
               value={search}
               onChange={(e) => {
@@ -135,6 +137,7 @@ function HomePageContent() {
                 </h3>
                 <div className="space-y-2">
                   <button
+                    data-testid="category-filter-all"
                     onClick={() => {
                       setSelectedCategory('');
                       setPage(1);
@@ -151,6 +154,7 @@ function HomePageContent() {
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
+                      data-testid={`category-filter-${cat.slug}`}
                       onClick={() => {
                         setSelectedCategory(cat.id);
                         setPage(1);
@@ -174,6 +178,8 @@ function HomePageContent() {
                   Sắp Xếp
                 </h3>
                 <select
+                  id="sort-select"
+                  data-testid="sort-select"
                   value={sortBy}
                   onChange={(e) => {
                     setSortBy(e.target.value);
@@ -219,6 +225,10 @@ function HomePageContent() {
                     <Link
                       href={`/product/${product.slug}`}
                       key={product.id}
+                      data-testid="product-card"
+                      data-product-id={product.id}
+                      data-product-name={product.name}
+                      data-product-price={product.price}
                       className="group bg-white rounded-2xl border border-[#EAE6DF] overflow-hidden hover:shadow-xl hover:border-[#D4A373]/50 transition-all duration-300 flex flex-col justify-between"
                     >
                       <div>
@@ -258,6 +268,8 @@ function HomePageContent() {
                         </span>
                         
                         <button
+                          data-testid="add-to-cart-quick"
+                          data-product-id={product.id}
                           disabled={product.stock === 0 || addingId === product.id}
                           onClick={(e) => handleAddToCart(e, product.id)}
                           className="p-2 rounded-full bg-[#1A1918] text-white hover:bg-[#D4A373] transition-colors disabled:bg-gray-200 disabled:text-gray-400 cursor-pointer disabled:cursor-not-allowed"

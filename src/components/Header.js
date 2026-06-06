@@ -23,7 +23,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="group">
+            <Link href="/" className="group" data-testid="header-logo">
               <span className="font-serif text-2xl font-bold tracking-widest text-[#1A1918] group-hover:text-[#D4A373] transition duration-300">
                 AURACRAFT
               </span>
@@ -35,16 +35,16 @@ export default function Header() {
 
           {/* Center navigation */}
           <nav className="hidden md:flex space-x-10">
-            <Link href="/" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300">
+            <Link href="/" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300" data-testid="nav-products">
               Sản Phẩm
             </Link>
-            <Link href="/?category=gom-su-thu-cong" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300">
+            <Link href="/?category=gom-su-thu-cong" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300" data-testid="nav-category-gom-su">
               Gốm Sứ
             </Link>
-            <Link href="/?category=do-da-cao-cap" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300">
+            <Link href="/?category=do-da-cao-cap" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300" data-testid="nav-category-do-da">
               Đồ Da
             </Link>
-            <Link href="/?category=nen-thom-nghe-thuat" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300">
+            <Link href="/?category=nen-thom-nghe-thuat" className="text-sm font-medium text-[#5C5752] hover:text-[#1A1918] transition duration-300" data-testid="nav-category-nen-thom">
               Nến Thơm
             </Link>
           </nav>
@@ -52,6 +52,8 @@ export default function Header() {
           {/* Cart Icon & Actions */}
           <div className="flex items-center space-x-4">
             <Link
+              id="header-cart-btn"
+              data-testid="header-cart-btn"
               href="/cart"
               className="relative p-2.5 text-[#2C2A29] hover:text-[#D4A373] transition-colors rounded-full hover:bg-[#F2EFE9]"
               aria-label="Shopping Cart"
@@ -71,7 +73,7 @@ export default function Header() {
                 />
               </svg>
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#C2410C] text-[10px] font-bold text-white ring-2 ring-[#FAF9F6]">
+                <span data-testid="header-cart-count" className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#C2410C] text-[10px] font-bold text-white ring-2 ring-[#FAF9F6]">
                   {totalItems}
                 </span>
               )}

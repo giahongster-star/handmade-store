@@ -3,6 +3,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Script from "next/script";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -28,6 +29,10 @@ export default function RootLayout({ children }) {
       className={`${plusJakarta.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FAF9F6] text-[#2C2A29] font-sans selection:bg-[#D4A373] selection:text-white">
+        <Script id="recsys-key" strategy="beforeInteractive">
+          {`window.__RECSYS_DOMAIN_KEY__ = "f9f56da43d7619526498c07717aeb3144bd9ed960899ed5aa20c1a5faf5625ee";`}
+        </Script>
+        <Script src="https://tracking-sdk.s3-ap-southeast-2.amazonaws.com/dist/loader.js" strategy="afterInteractive" />
         <CartProvider>
           <Header />
           <main className="flex-grow">{children}</main>

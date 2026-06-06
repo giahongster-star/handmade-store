@@ -1,0 +1,19 @@
+/* Overlay and highlight styles for element selection */
+.auracraft-inspector-hover {
+  outline: 2px dashed #d97706 !important;
+  outline-offset: -2px !important;
+  background-color: rgba(217, 119, 6, 0.1) !important;
+  cursor: crosshair !important;
+}
+
+/* Injected container modal shadow DOM styling wrapper */
+#auracraft-modal-root {
+  all: initial;
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AuraCraft Event Tracker Helper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      width: 380px;
+      margin: 0;
+      padding: 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF9F6;
+      color: #2C2A29;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #EAE6DF;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      color: #1A1918;
+    }
+    .btn-select {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background-color: #d97706;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      box-shadow: 0 4px 6px rgba(217, 119, 6, 0.2);
+    }
+    .btn-select:hover {
+      background-color: #b45309;
+    }
+    .btn-select:active {
+      transform: scale(0.98);
+    }
+    .btn-select.active {
+      background-color: #dc2626;
+      box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
+    }
+    .section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #8C867E;
+      letter-spacing: 1px;
+      margin: 20px 0 10px;
+    }
+    .rules-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #EAE6DF;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+    .rule-item {
+      padding: 10px 12px;
+      border-bottom: 1px solid #FAF9F6;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .rule-item:last-child {
+      border-bottom: none;
+    }
+    .rule-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rule-name {
+      font-weight: 700;
+      color: #1A1918;
+    }
+    .rule-type {
+      font-size: 11px;
+      background-color: #EAE6DF;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #5C5752;
+    }
+    .rule-selector {
+      font-size: 11px;
+      color: #8C867E;
+      word-break: break-all;
+      font-family: monospace;
+    }
+    .empty-state {
+      padding: 24px;
+      text-align: center;
+      color: #8C867E;
+      font-size: 13px;
+    }
+    .footer-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+    }
+    .btn-secondary {
+      flex: 1;
+      padding: 8px;
+      background-color: #ffffff;
+      border: 1px solid #EAE6DF;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2C2A29;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-secondary:hover {
+      background-color: #FAF9F6;
+      border-color: #8C867E;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="logo">AuraCraft Tracker</span>
+    <span style="font-size: 11px; color: #8C867E; font-weight: 600;">v1.0</span>
+  </div>
+
+  <button id="btn-toggle-select" class="btn-select">
+    <span id="select-icon">🎯</span>
+    <span id="select-text">Chọn phần tử trên trang</span>
+  </button>
+
+  <div class="section-title">Danh sách cấu hình đã lưu</div>
+  <div class="rules-list" id="rules-container">
+    <!-- Saved rules populated by JS -->
+    <div class="empty-state">Chưa cấu hình sự kiện nào.</div>
+  </div>
+
+  <div class="footer-actions">
+    <button id="btn-export" class="btn-secondary">Xuất JSON</button>
+    <button id="btn-clear" class="btn-secondary" style="color: #dc2626; border-color: rgba(220,38,38,0.2);">Xóa tất cả</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Artisanal Event Tracker Helper",
+  "version": "1.0",
+  "description": "Chrome Extension cho phép chọn phần tử trên trang và cấu hình luật theo dõi sự kiện (Event Tracking Rules).",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}

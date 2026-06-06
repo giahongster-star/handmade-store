@@ -228,7 +228,7 @@ export const run = async (sql, params = []) => {
     const initialLen = data.cart_items.length;
     data.cart_items = data.cart_items.filter(ci => ci.cart_id !== cart_id);
     writeDb(data);
-    return { id, changes: initialLen - data.cart_items.length };
+    return { id: null, changes: initialLen - data.cart_items.length };
   }
 
   console.warn('Unhandled raw SQL run:', sql);

@@ -1,0 +1,260 @@
+{
+  "categories": [
+    {
+      "id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Gốm Sứ Thủ Công",
+      "slug": "gom-su-thu-cong",
+      "description": "Các sản phẩm gốm sứ nghệ thuật làm thủ công bằng tay, nung nhiệt độ cao.",
+      "created_at": "2026-06-06T10:23:45.484Z",
+      "updated_at": "2026-06-06T10:23:45.485Z"
+    },
+    {
+      "id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Đồ Da Cao Cấp",
+      "slug": "do-da-cao-cap",
+      "description": "Bóp ví, túi xách, thắt lưng da thật khâu tay tỉ mỉ từng đường kim mũi chỉ.",
+      "created_at": "2026-06-06T10:23:45.488Z",
+      "updated_at": "2026-06-06T10:23:45.488Z"
+    },
+    {
+      "id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Nghệ Thuật",
+      "slug": "nen-thom-nghe-thuat",
+      "description": "Nến thơm sáp đậu nành tự nhiên, tinh dầu nhập khẩu cao cấp, an toàn sức khỏe.",
+      "created_at": "2026-06-06T10:23:45.490Z",
+      "updated_at": "2026-06-06T10:23:45.490Z"
+    },
+    {
+      "id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Trang Sức & Phụ Kiện",
+      "slug": "trang-suc-phu-kien",
+      "description": "Vòng tay, dây chuyền, khuyên tai làm thủ công từ bạc, đá tự nhiên và hạt.",
+      "created_at": "2026-06-06T10:23:45.492Z",
+      "updated_at": "2026-06-06T10:23:45.492Z"
+    },
+    {
+      "id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Trang Trí Nhà Cửa Macrame",
+      "slug": "trang-tri-macrame",
+      "description": "Tranh treo tường macrame, thảm, rèm thắt nút phong cách boho hiện đại.",
+      "created_at": "2026-06-06T10:23:45.493Z",
+      "updated_at": "2026-06-06T10:23:45.493Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "bdd1e8bc-0f31-4bd8-9bbd-2af31e537369",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Bình Hoa Gốm Men Hỏa Biến",
+      "slug": "binh-hoa-gom-men-hoa-bien",
+      "description": "Bình hoa được làm thủ công bằng bàn xoay, tráng men hỏa biến độc bản. Mỗi chiếc bình có hoa văn và vệt màu độc nhất vô nhị do sự thay đổi nhiệt độ trong lò nung.",
+      "price": 450000,
+      "stock": 5,
+      "status": "active",
+      "attributes": "{\"material\":\"Đất sét trắng, men hỏa biến\",\"dimensions\":\"Cao 22cm, Đường kính 12cm\",\"weight\":\"800g\",\"origin\":\"Bát Tràng, Việt Nam\"}",
+      "created_at": "2026-06-06T10:23:45.486Z",
+      "updated_at": "2026-06-06T10:23:45.486Z"
+    },
+    {
+      "id": "a36cbefe-b320-4027-bba9-4c0b529d120b",
+      "category_id": "05c36e5f-29d9-46fc-92a7-0caf3bc15da1",
+      "name": "Bộ Ly Tách Gốm Trà Chiều",
+      "slug": "bo-ly-tach-gom-tra-chieu",
+      "description": "Bộ sản phẩm gồm 1 ấm trà và 4 ly tách gốm tráng men mờ mộc mạc. Thích hợp cho không gian thưởng trà thư giãn tĩnh lặng.",
+      "price": 680000,
+      "stock": 3,
+      "status": "active",
+      "attributes": "{\"material\":\"Gốm thô tráng men mờ\",\"capacity\":\"Ấm 450ml, Tách 80ml\",\"packaging\":\"Hộp quà tặng carton lót rơm\",\"origin\":\"Làng gốm Phù Lãng\"}",
+      "created_at": "2026-06-06T10:23:45.487Z",
+      "updated_at": "2026-06-06T10:23:45.487Z"
+    },
+    {
+      "id": "2f6b711b-8d1e-416f-9705-1c881ead6a1d",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Ví Nam Da Bò Sáp Khâu Tay",
+      "slug": "vi-nam-da-bo-sap-khau-tay",
+      "description": "Ví dáng đứng cổ điển làm từ da bò sáp nhập khẩu. Khâu tay hoàn toàn bằng chỉ sáp cao cấp, các cạnh da được đánh bóng sáp ong bền đẹp theo thời gian.",
+      "price": 550000,
+      "stock": 10,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò sáp thật 100%\",\"pockets\":\"6 ngăn thẻ, 2 ngăn tiền giấy\",\"dimensions\":\"11cm x 9cm\",\"color\":\"Nâu Coffee\"}",
+      "created_at": "2026-06-06T10:23:45.488Z",
+      "updated_at": "2026-06-06T10:23:45.488Z"
+    },
+    {
+      "id": "b2026db4-98bc-423a-bb03-b9e5d635209a",
+      "category_id": "e8a45899-7c4c-4ea5-9833-928566602ccc",
+      "name": "Túi Tote Da Đeo Vai Unisex",
+      "slug": "tui-tote-da-eo-vai-unisex",
+      "description": "Túi tote da bò Mill mềm mại, khoang chứa rộng rãi đựng vừa laptop 13-14 inch và tài liệu A4. Quai đeo chịu lực tốt phù hợp đi học, đi làm.",
+      "price": 1850000,
+      "stock": 2,
+      "status": "active",
+      "attributes": "{\"material\":\"Da bò Mill mềm hạt\",\"dimensions\":\"35cm x 30cm x 8cm\",\"strap_drop\":\"28cm\",\"closure\":\"Khóa kéo YKK đồng thau\"}",
+      "created_at": "2026-06-06T10:23:45.489Z",
+      "updated_at": "2026-06-06T10:23:45.489Z"
+    },
+    {
+      "id": "aca9d2c9-8179-4675-baeb-dacc537c48dd",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Sáp Đậu Nành Gỗ Đàn Hương",
+      "slug": "nen-thom-sap-au-nanh-go-an-huong",
+      "description": "Nến thơm thuần chay từ sáp đậu nành thiên nhiên hòa quyện tinh dầu gỗ đàn hương trầm ấm và hổ phách dịu ngọt. Giúp giải tỏa căng thẳng sau ngày làm việc mệt mỏi.",
+      "price": 280000,
+      "stock": 20,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp đậu nành, bấc gỗ, tinh dầu thiên nhiên\",\"burn_time\":\"45-50 giờ\",\"weight\":\"200g (Hũ thủy tinh)\",\"scent_notes\":\"Gỗ đàn hương, tuyết tùng, hổ phách\"}",
+      "created_at": "2026-06-06T10:23:45.490Z",
+      "updated_at": "2026-06-06T10:23:45.490Z"
+    },
+    {
+      "id": "f2110a85-5457-416c-b596-e18be4e1b2a6",
+      "category_id": "6db4b0fa-228a-4fe4-b504-ed4f05b0a4e4",
+      "name": "Nến Thơm Mùi Quế Ấm Áp",
+      "slug": "nen-thom-mui-que-am-ap",
+      "description": "Mang hương vị giáng sinh ấm áp vào phòng ngủ của bạn với hương quế kết hợp cùng vỏ cam sấy khô tự nhiên trang trí trên bề mặt nến.",
+      "price": 250000,
+      "stock": 12,
+      "status": "active",
+      "attributes": "{\"material\":\"Sáp cọ và sáp ong, bấc cotton\",\"burn_time\":\"35-40 giờ\",\"weight\":\"150g (Hũ thiếc vintage)\",\"scent_notes\":\"Vỏ quế, cam ngọt, đinh hương\"}",
+      "created_at": "2026-06-06T10:23:45.491Z",
+      "updated_at": "2026-06-06T10:23:45.491Z"
+    },
+    {
+      "id": "a81f5797-0b84-4f61-b8f7-546d0dcd936a",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Vòng Tay Bạc Khắc Hoa Văn Cổ",
+      "slug": "vong-tay-bac-khac-hoa-van-co",
+      "description": "Chiếc vòng tay bạc S925 được người thợ chạm bạc lành nghề rèn thủ công với hoa văn cổ điển sang trọng và tinh tế.",
+      "price": 750000,
+      "stock": 4,
+      "status": "active",
+      "attributes": "{\"material\":\"Bạc S925 nguyên chất\",\"size\":\"Freesize (có thể điều chỉnh)\",\"width\":\"6mm\",\"finish\":\"Bạc cổ mờ\"}",
+      "created_at": "2026-06-06T10:23:45.492Z",
+      "updated_at": "2026-06-06T10:23:45.492Z"
+    },
+    {
+      "id": "57b3d387-1e87-4f98-8a96-07ab1b88ca4d",
+      "category_id": "4f777a21-d2d2-48b6-846a-07307d56f06f",
+      "name": "Khuyên Tai Hạt Đá Thạch Anh Hồng",
+      "slug": "khuyen-tai-hat-a-thach-anh-hong",
+      "description": "Khuyên tai dáng dài nhẹ nhàng làm từ đá thạch anh hồng thô kết hợp dây đồng mảnh nghệ thuật, mang lại năng lượng tình yêu dịu mát.",
+      "price": 180000,
+      "stock": 8,
+      "status": "active",
+      "attributes": "{\"material\":\"Đá thạch anh hồng tự nhiên, móc bạc S925\",\"length\":\"4cm\",\"theme\":\"Nữ tính, tự nhiên\"}",
+      "created_at": "2026-06-06T10:23:45.493Z",
+      "updated_at": "2026-06-06T10:23:45.493Z"
+    },
+    {
+      "id": "fc039822-0122-4665-9049-4b2ce36ce1e5",
+      "category_id": "a2a9f37f-5092-471b-aee7-36b7b75d51df",
+      "name": "Tranh Treo Tường Macrame Mandala",
+      "slug": "tranh-treo-tuong-macrame-mandala",
+      "description": "Tranh treo tường cỡ lớn thắt nút nghệ thuật dạng Mandala tròn tinh xảo, tạo điểm nhấn đậm chất Bắc Âu (Scandinavian) hoặc Boho Chic cho phòng khách.",
+      "price": 890000,
+      "stock": 3,
+      "status": "active",
+      "attributes": "{\"material\":\"Sợi cotton xoắn 4mm, thanh treo gỗ thông tự nhiên\",\"dimensions\":\"Rộng 60cm x Dài 85cm\",\"care\":\"Giũ bụi nhẹ nhàng, không giặt máy\"}",
+      "created_at": "2026-06-06T10:23:45.494Z",
+      "updated_at": "2026-06-06T10:23:45.494Z"
+    }
+  ],
+  "product_images": [
+    {
+      "id": "c3764112-5c6a-4561-90df-dd6176c4ac8e",
+      "product_id": "bdd1e8bc-0f31-4bd8-9bbd-2af31e537369",
+      "url": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.486Z"
+    },
+    {
+      "id": "0c83bceb-e32e-44ae-bacf-e8c0e2255a4f",
+      "product_id": "bdd1e8bc-0f31-4bd8-9bbd-2af31e537369",
+      "url": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 0,
+      "created_at": "2026-06-06T10:23:45.486Z"
+    },
+    {
+      "id": "67630a3b-29ae-4335-9732-e86ae285052d",
+      "product_id": "a36cbefe-b320-4027-bba9-4c0b529d120b",
+      "url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.487Z"
+    },
+    {
+      "id": "71b3d30f-b560-4a45-b6f7-7b3db12d4b73",
+      "product_id": "a36cbefe-b320-4027-bba9-4c0b529d120b",
+      "url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 0,
+      "created_at": "2026-06-06T10:23:45.487Z"
+    },
+    {
+      "id": "d006fc2a-eecd-4506-a2db-a0261f5895fe",
+      "product_id": "2f6b711b-8d1e-416f-9705-1c881ead6a1d",
+      "url": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.488Z"
+    },
+    {
+      "id": "f85617da-384d-4ec9-862b-89e4548a4f33",
+      "product_id": "b2026db4-98bc-423a-bb03-b9e5d635209a",
+      "url": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.489Z"
+    },
+    {
+      "id": "3c216d75-e887-4b60-acf6-b35ed556c02d",
+      "product_id": "aca9d2c9-8179-4675-baeb-dacc537c48dd",
+      "url": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.490Z"
+    },
+    {
+      "id": "6e03355e-7ee1-439c-a741-1f2b63a4f3d2",
+      "product_id": "aca9d2c9-8179-4675-baeb-dacc537c48dd",
+      "url": "https://images.unsplash.com/photo-1508747703725-719ae2c73ee0?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 0,
+      "created_at": "2026-06-06T10:23:45.491Z"
+    },
+    {
+      "id": "3bd858fb-ad10-491b-a9e9-2fd2e2b9819e",
+      "product_id": "f2110a85-5457-416c-b596-e18be4e1b2a6",
+      "url": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.491Z"
+    },
+    {
+      "id": "5f615215-3773-461a-a9a3-ff73caba37d1",
+      "product_id": "a81f5797-0b84-4f61-b8f7-546d0dcd936a",
+      "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.492Z"
+    },
+    {
+      "id": "67d25713-db41-4bb7-aacd-3d21345b5336",
+      "product_id": "a81f5797-0b84-4f61-b8f7-546d0dcd936a",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 0,
+      "created_at": "2026-06-06T10:23:45.492Z"
+    },
+    {
+      "id": "57613eb2-c20e-47c9-80d2-5fa33bd551c4",
+      "product_id": "57b3d387-1e87-4f98-8a96-07ab1b88ca4d",
+      "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.493Z"
+    },
+    {
+      "id": "3c5c83dc-60c1-4d71-a183-53be3a154bab",
+      "product_id": "fc039822-0122-4665-9049-4b2ce36ce1e5",
+      "url": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80",
+      "is_primary": 1,
+      "created_at": "2026-06-06T10:23:45.495Z"
+    }
+  ],
+  "carts": [],
+  "cart_items": [],
+  "orders": [],
+  "order_items": []
+}

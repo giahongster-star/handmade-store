@@ -74,17 +74,39 @@ function handleElementClick(e) {
 }
 
 function generateCSSSelector(el) {
+  // 1. If element has data-testid, return it directly
+  const testId = el.getAttribute('data-testid');
+  if (testId) {
+    return `[data-testid="${testId}"]`;
+  }
+
+  // 2. If element has an id, return it directly
   if (el.id) {
     return `#${el.id}`;
   }
   
   let path = [];
-  while (el && el.nodeType === Node.ELEMENT_NODE) {
-    let selector = el.nodeName.toLowerCase();
+  let currentEl = el;
+  while (currentEl && currentEl.nodeType === Node.ELEMENT_NODE) {
+    // If we find an element with data-testid along the path, stop there and prepend it!
+    const pathTestId = currentEl.getAttribute('data-testid');
+    if (pathTestId) {
+      path.unshift(`[data-testid="${pathTestId}"]`);
+      break;
+    }
+    
+    // If we find an element with id along the path, stop there and prepend it!
+    if (currentEl.id) {
+      path.unshift(`#${currentEl.id}`);
+      break;
+    }
+
+    let selector = currentEl.nodeName.toLowerCase();
     
     // Ignore extension injected classes
-    const classes = Array.from(el.classList)
+    const classes = Array.from(currentEl.classList)
       .filter(c => c !== "auracraft-inspector-hover")
+      .map(c => typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(c) : c.replace(/([#:\.\[\]\(\)\/])/g, '\\$1'))
       .join(".");
       
     if (classes) {
@@ -92,14 +114,14 @@ function generateCSSSelector(el) {
     }
     
     // Check if unique in siblings
-    let siblings = el.parentNode ? Array.from(el.parentNode.children).filter(c => c.nodeName === el.nodeName) : [];
+    let siblings = currentEl.parentNode ? Array.from(currentEl.parentNode.children).filter(c => c.nodeName === currentEl.nodeName) : [];
     if (siblings.length > 1) {
-      const index = siblings.indexOf(el) + 1;
+      const index = siblings.indexOf(currentEl) + 1;
       selector += `:nth-of-type(${index})`;
     }
     
     path.unshift(selector);
-    el = el.parentNode;
+    currentEl = currentEl.parentNode;
     
     // Stop at body or HTML
     if (selector.startsWith("body") || selector.startsWith("html")) {

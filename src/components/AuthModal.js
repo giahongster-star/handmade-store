@@ -41,7 +41,7 @@ export default function AuthModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-start md:items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-[#1A1918]/60 backdrop-blur-md transition-opacity duration-300"
@@ -49,7 +49,7 @@ export default function AuthModal({ isOpen, onClose }) {
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-md bg-[#FAF9F6] border border-[#EAE6DF] rounded-3xl shadow-2xl p-8 overflow-hidden transform transition-all duration-300 scale-100 flex flex-col">
+      <div className="relative my-auto w-full max-w-md bg-[#FAF9F6] border border-[#EAE6DF] rounded-3xl shadow-2xl p-8 transform transition-all duration-300 scale-100 flex flex-col">
         {/* Subtle decorative glow */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4A373]/10 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#C2410C]/5 rounded-full blur-3xl -z-10" />

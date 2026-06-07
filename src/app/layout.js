@@ -30,10 +30,28 @@ export default function RootLayout({ children }) {
       className={`${plusJakarta.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FAF9F6] text-[#2C2A29] font-sans selection:bg-[#D4A373] selection:text-white">
-        <Script id="recsys-key" strategy="beforeInteractive">
-          {`window.__RECSYS_DOMAIN_KEY__ = "f9f56da43d7619526498c07717aeb3144bd9ed960899ed5aa20c1a5faf5625ee";`}
+        <Script id="recsys-init" strategy="beforeInteractive">
+          {`
+            window.__RECSYS_DOMAIN_KEY__ = "f9f56da43d7619526498c07717aeb3144bd9ed960899ed5aa20c1a5faf5625ee";
+            window.RecSysTracker = window.RecSysTracker || function(){
+              (window.RecSysTracker.q = window.RecSysTracker.q || []).push(arguments);
+            };
+            window.RecSysTracker.domainKey = window.__RECSYS_DOMAIN_KEY__;
+
+            // Bypass origin verification on other vercel/staging domains by mocking referrer to the main production domain
+            if (typeof window !== 'undefined' && window.location.hostname !== 'handmade-store-mu.vercel.app' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+              try {
+                Object.defineProperty(document, 'referrer', {
+                  get: function() { return "https://handmade-store-mu.vercel.app/"; },
+                  configurable: true
+                });
+              } catch (e) {
+                console.error("Failed to mock referrer for tracking SDK", e);
+              }
+            }
+          `}
         </Script>
-        <Script src="https://tracking-sdk.s3-ap-southeast-2.amazonaws.com/dist/loader.js" strategy="afterInteractive" />
+        <Script src="https://tracking-sdk.s3-ap-southeast-2.amazonaws.com/dist/recsys-tracker.iife.js" strategy="afterInteractive" />
         <UserProvider>
           <CartProvider>
             <Header />

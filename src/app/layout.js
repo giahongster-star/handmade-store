@@ -38,6 +38,34 @@ export default function RootLayout({ children }) {
             };
             window.RecSysTracker.domainKey = window.__RECSYS_DOMAIN_KEY__;
 
+            // Intercept fetch calls to force UTF-8 decoding on recommendation endpoint responses
+            if (typeof window !== 'undefined') {
+              const originalFetch = window.fetch;
+              window.fetch = async function(...args) {
+                const url = typeof args[0] === 'string' ? args[0] : (args[0] && args[0].url);
+                if (url && url.includes('recsys-tracker-module-d8ty') && url.includes('/recommendation')) {
+                  try {
+                    const response = await originalFetch.apply(this, args);
+                    if (response.ok) {
+                      const buffer = await response.arrayBuffer();
+                      const decoder = new TextDecoder('utf-8');
+                      const text = decoder.decode(buffer);
+                      return new Response(text, {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: {
+                          'content-type': 'application/json; charset=utf-8'
+                        }
+                      });
+                    }
+                  } catch (e) {
+                    console.error("Failed to intercept and decode fetch response", e);
+                  }
+                }
+                return originalFetch.apply(this, args);
+              };
+            }
+
             // Bypass origin verification on other vercel/staging domains by mocking referrer to the main production domain
             if (typeof window !== 'undefined' && window.location.hostname !== 'handmade-store-mu.vercel.app' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
               try {

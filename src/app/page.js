@@ -124,7 +124,7 @@ function HomePageContent() {
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Sidebar Filters */}
-          <aside className="w-full lg:w-64 flex-shrink-0">
+          <aside className="w-full lg:w-64 flex-shrink-0 relative z-10">
             <div className="bg-white p-6 rounded-2xl border border-[#EAE6DF] sticky top-28">
               <h2 className="font-serif text-lg font-bold text-[#1A1918] mb-4 pb-2 border-b border-[#F2EFE9]">
                 Bộ Lọc Tìm Kiếm

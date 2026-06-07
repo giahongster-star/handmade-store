@@ -47,10 +47,21 @@ export default function RootLayout({ children }) {
                   try {
                     const response = await originalFetch.apply(this, args);
                     if (response.ok) {
-                      const buffer = await response.arrayBuffer();
-                      const decoder = new TextDecoder('utf-8');
-                      const text = decoder.decode(buffer);
-                      return new Response(text, {
+                      const rawText = await response.text();
+                      
+                      // Fix double-encoded UTF-8 from the recommender server by converting chars back to bytes
+                      let decodedText = rawText;
+                      try {
+                        const bytes = new Uint8Array(rawText.length);
+                        for (let i = 0; i < rawText.length; i++) {
+                          bytes[i] = rawText.charCodeAt(i) & 0xff;
+                        }
+                        decodedText = new TextDecoder('utf-8').decode(bytes);
+                      } catch (err) {
+                        console.error("Failed to decode double UTF-8", err);
+                      }
+
+                      return new Response(decodedText, {
                         status: response.status,
                         statusText: response.statusText,
                         headers: {

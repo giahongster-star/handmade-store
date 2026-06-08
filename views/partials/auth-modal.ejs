@@ -1,0 +1,53 @@
+<!-- Auth Modal Overlay -->
+<div id="auth-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
+  <!-- Modal Card -->
+  <div class="relative bg-[#FAF9F6] w-full max-w-md rounded-2xl border border-[#EAE6DF] shadow-2xl p-8 transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+    <!-- Close Button -->
+    <button onclick="closeAuthModal()" class="absolute top-4 right-4 p-2 text-[#8C867E] hover:text-[#1A1918] hover:bg-[#F2EFE9] rounded-full transition-colors cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" class="w-5 h-5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <h2 id="auth-modal-title" class="font-serif text-2xl font-bold text-[#1A1918]">Đăng Nhập</h2>
+      <p id="auth-modal-subtitle" class="text-sm text-[#8C867E] mt-1.5">Mừng bạn quay trở lại với AuraCraft</p>
+    </div>
+
+    <!-- Error message display -->
+    <div id="auth-error-msg" class="hidden mb-4 p-3 bg-red-50 text-red-600 rounded-xl text-xs border border-red-100"></div>
+
+    <!-- Forms -->
+    <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+      <!-- Name Field (Visible in Sign Up mode only) -->
+      <div id="name-field-container" class="hidden mb-4">
+        <label for="reg-name" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Họ và tên</label>
+        <input type="text" id="reg-name" placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+      </div>
+
+      <!-- Email Field -->
+      <div class="mb-4">
+        <label for="auth-email" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Địa chỉ Email</label>
+        <input type="email" id="auth-email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-6">
+        <label for="auth-password" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Mật khẩu</label>
+        <input type="password" id="auth-password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="auth-submit-btn" class="w-full py-4 bg-[#1A1918] text-white hover:bg-[#D4A373] transition-colors rounded-xl font-medium tracking-wide shadow-lg cursor-pointer">
+        Đăng Nhập
+      </button>
+    </form>
+
+    <!-- Toggle Mode Link -->
+    <div class="text-center mt-6 pt-6 border-t border-[#EAE6DF] text-sm text-[#8C867E]">
+      <span id="auth-toggle-text">Chưa có tài khoản?</span>
+      <button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-[#D4A373] font-medium hover:underline ml-1 cursor-pointer">Tạo tài khoản mới</button>
+    </div>
+  </div>
+</div>

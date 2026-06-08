@@ -324,7 +324,7 @@ export const all = async (sql, params = []) => {
     return list;
   }
 
-  // 4. Get cart details
+  // 4. Get cart details (with full info including product details and image)
   if (cleanedSql.includes('SELECT ci.id, ci.product_id, ci.quantity, p.name, p.price, p.slug')) {
     const [cartId] = params;
     const items = data.cart_items.filter(ci => ci.cart_id === cartId);
@@ -339,6 +339,52 @@ export const all = async (sql, params = []) => {
         price: p ? p.price : 0,
         slug: p ? p.slug : '',
         primary_image_url: img ? img.url : null
+      };
+    });
+  }
+
+  // 4b. Get simple cart items quantity / id (used in header middleware)
+  if (cleanedSql.includes('SELECT ci.id, ci.quantity FROM cart_items ci')) {
+    const [cartId] = params;
+    return data.cart_items
+      .filter(ci => ci.cart_id === cartId)
+      .map(item => ({ id: item.id, quantity: item.quantity }));
+  }
+
+  // 4b-2. Get cart items quantities (used in api/cart/add)
+  if (cleanedSql.includes('SELECT quantity FROM cart_items WHERE cart_id =')) {
+    const [cartId] = params;
+    return data.cart_items
+      .filter(ci => ci.cart_id === cartId)
+      .map(item => ({ quantity: item.quantity }));
+  }
+
+  // 4b-3. Get cart items with price (used in api/cart/update and api/cart/remove)
+  if (cleanedSql.includes('SELECT ci.id, ci.quantity, p.price FROM cart_items ci')) {
+    const [cartId] = params;
+    const items = data.cart_items.filter(ci => ci.cart_id === cartId);
+    return items.map(item => {
+      const p = data.products.find(prod => prod.id === item.product_id);
+      return {
+        id: item.id,
+        quantity: item.quantity,
+        price: p ? p.price : 0
+      };
+    });
+  }
+
+  // 4c. Get cart items with price and stock (used in checkout)
+  if (cleanedSql.includes('SELECT ci.id, ci.product_id, ci.quantity, p.price, p.stock FROM cart_items ci')) {
+    const [cartId] = params;
+    const items = data.cart_items.filter(ci => ci.cart_id === cartId);
+    return items.map(item => {
+      const p = data.products.find(prod => prod.id === item.product_id);
+      return {
+        id: item.id,
+        product_id: item.product_id,
+        quantity: item.quantity,
+        price: p ? p.price : 0,
+        stock: p ? p.stock : 0
       };
     });
   }
@@ -422,11 +468,11 @@ export const get = async (sql, params = []) => {
     return cart ? { id: cart.id } : null;
   }
 
-  // 6. Get product stock
-  if (cleanedSql.startsWith('SELECT stock FROM products WHERE id =')) {
+  // 6. Get product stock or details by ID (handles "SELECT id, stock..." or "SELECT stock...")
+  if (cleanedSql.includes('FROM products WHERE id =')) {
     const [id] = params;
     const p = data.products.find(prod => prod.id === id);
-    return p ? { stock: p.stock } : null;
+    return p ? { id: p.id, stock: p.stock } : null;
   }
 
   // 7. Get cart item by cart & product
@@ -443,15 +489,24 @@ export const get = async (sql, params = []) => {
     return item ? { product_id: item.product_id } : null;
   }
 
+  // 8b. Get cart item stock and product ID (used in cart update checks)
+  if (cleanedSql.includes('SELECT ci.product_id, p.stock FROM cart_items ci')) {
+    const [itemId, cartId] = params;
+    const item = data.cart_items.find(ci => ci.id === itemId && ci.cart_id === cartId);
+    if (!item) return null;
+    const p = data.products.find(prod => prod.id === item.product_id);
+    return p ? { product_id: item.product_id, stock: p.stock } : null;
+  }
+
   // 9. Get Order detail
-  if (cleanedSql.includes('SELECT * FROM orders WHERE id = ? OR code = ?')) {
-    const [slugOrId1, slugOrId2] = params;
-    const order = data.orders.find(o => o.id === slugOrId1 || o.code === slugOrId1 || o.id === slugOrId2 || o.code === slugOrId2);
+  if (cleanedSql.includes('FROM orders WHERE')) {
+    const [val] = params;
+    const order = data.orders.find(o => o.id === val || o.code === val);
     return order ? { ...order } : null;
   }
 
-  // 10. Get User by Email
-  if (cleanedSql.startsWith('SELECT * FROM users WHERE email =')) {
+  // 10. Get User by Email (handles both "SELECT * FROM users..." and "SELECT id FROM users...")
+  if (cleanedSql.includes('FROM users WHERE email =')) {
     const [email] = params;
     data.users = data.users || [];
     const user = data.users.find(u => u.email === email);

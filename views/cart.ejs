@@ -1,0 +1,180 @@
+<%- include('partials/header') %>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <h1 class="font-serif text-3xl font-bold text-[#1A1918] mb-8">Giỏ Hàng Của Bạn</h1>
+
+  <% if (items.length === 0) { %>
+    <div class="text-center py-20 bg-white rounded-3xl border border-[#EAE6DF] p-8 max-w-2xl mx-auto shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-16 h-16 text-[#8C867E] mx-auto mb-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+      </svg>
+      <h3 class="font-serif text-xl font-bold text-[#1A1918] mb-2">Giỏ hàng trống</h3>
+      <p class="text-sm text-[#8C867E] mb-6">Bạn chưa chọn sản phẩm nào để thêm vào giỏ hàng.</p>
+      <a href="/" class="px-6 py-3 bg-[#1A1918] text-white hover:bg-[#D4A373] transition rounded-xl font-medium shadow-md">
+        Quay lại mua sắm
+      </a>
+    </div>
+  <% } else { %>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      
+      <!-- Cart Items List -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="bg-white rounded-3xl border border-[#EAE6DF] p-6 sm:p-8 space-y-6 shadow-sm">
+          <% items.forEach(function(item) { %>
+            <div id="cart-item-<%= item.id %>" class="flex flex-col sm:flex-row sm:items-center justify-between py-6 border-b border-[#F2EFE9] last:border-0 last:pb-0 first:pt-0">
+              <!-- Product basic info -->
+              <div class="flex items-center space-x-4">
+                <div class="w-20 h-20 bg-[#FAF9F6] rounded-xl overflow-hidden border border-[#EAE6DF] flex-shrink-0">
+                  <img src="<%= item.primary_image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=200&q=80' %>" alt="<%= item.name %>" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <a href="/product/<%= item.slug %>" class="font-serif font-bold text-base text-[#1A1918] hover:text-[#D4A373] transition">
+                    <%= item.name %>
+                  </a>
+                  <p class="text-sm text-[#C2410C] font-semibold mt-1">
+                    <%= formatPrice(item.price) %>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Quantity Selector & Actions -->
+              <div class="flex items-center justify-between sm:justify-end space-x-6 mt-4 sm:mt-0">
+                <!-- Quantity adjust -->
+                <div class="flex items-center border border-[#EAE6DF] rounded-lg overflow-hidden bg-[#FAF9F6] h-10">
+                  <button onclick="updateCartItemQty('<%= item.id %>', <%= item.quantity - 1 %>)" class="px-3 text-[#8C867E] hover:text-[#1A1918] h-full focus:outline-none cursor-pointer">-</button>
+                  <span class="w-10 text-center font-bold text-sm text-[#2C2A29]"><%= item.quantity %></span>
+                  <button onclick="updateCartItemQty('<%= item.id %>', <%= item.quantity + 1 %>)" class="px-3 text-[#8C867E] hover:text-[#1A1918] h-full focus:outline-none cursor-pointer">+</button>
+                </div>
+
+                <!-- Item Total & Delete -->
+                <div class="flex items-center space-x-4">
+                  <span class="text-sm font-bold text-[#1A1918] w-24 text-right">
+                    <%= formatPrice(item.price * item.quantity) %>
+                  </span>
+                  <button onclick="removeCartItem('<%= item.id %>')" class="text-[#8C867E] hover:text-red-600 transition p-1 cursor-pointer" title="Xóa khỏi giỏ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" class="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.34 9m-4.72 0-.34-9m4.72-9-.34 18M21 12H3m2 0h14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Checkout Summary & Checkout Form -->
+      <div class="space-y-6">
+        <!-- Order Summary Card -->
+        <div class="bg-white rounded-3xl border border-[#EAE6DF] p-6 sm:p-8 shadow-sm space-y-4">
+          <h2 class="font-serif text-lg font-bold text-[#1A1918] pb-3 border-b border-[#F2EFE9]">Tóm tắt đơn hàng</h2>
+          <div class="flex justify-between text-sm">
+            <span class="text-[#8C867E]">Tạm tính:</span>
+            <span id="cart-subtotal" class="font-semibold text-[#1A1918]"><%= formatPrice(subtotal) %></span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-[#8C867E]">Phí vận chuyển:</span>
+            <span class="font-semibold text-[#1A1918]"><%= formatPrice(30000) %></span>
+          </div>
+          <div class="flex justify-between text-base font-bold pt-3 border-t border-[#F2EFE9]">
+            <span>Tổng cộng:</span>
+            <span id="cart-total" class="text-[#C2410C]"><%= formatPrice(subtotal + 30000) %></span>
+          </div>
+        </div>
+
+        <!-- Shipping & Checkout Details Form -->
+        <div class="bg-white rounded-3xl border border-[#EAE6DF] p-6 sm:p-8 shadow-sm">
+          <h2 class="font-serif text-lg font-bold text-[#1A1918] pb-3 border-b border-[#F2EFE9] mb-4">Thông tin giao hàng</h2>
+          
+          <form id="checkout-form" action="/checkout" method="POST">
+            <!-- Full Name -->
+            <div class="mb-4">
+              <label for="shipping-name" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Họ và tên người nhận</label>
+              <input type="text" id="shipping-name" name="name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-4">
+              <label for="shipping-phone" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Số điện thoại</label>
+              <input type="tel" id="shipping-phone" name="phone" required placeholder="0987654321" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+            </div>
+
+            <!-- Address -->
+            <div class="mb-4">
+              <label for="shipping-address" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Địa chỉ giao hàng</label>
+              <input type="text" id="shipping-address" name="address" required placeholder="Số 123, Ngõ 45, Đường Lê Lợi" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+            </div>
+
+            <!-- City -->
+            <div class="mb-6">
+              <label for="shipping-city" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Tỉnh / Thành phố</label>
+              <input type="text" id="shipping-city" name="city" required placeholder="Hà Nội" class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] bg-white text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm">
+            </div>
+
+            <!-- Payment Method -->
+            <div class="mb-6">
+              <label class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-3">Phương thức thanh toán</label>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-3 p-3 bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl cursor-pointer hover:border-[#D4A373] transition">
+                  <input type="radio" name="payment_method" value="cod" checked class="text-[#D4A373] focus:ring-[#D4A373]">
+                  <span class="text-sm font-medium text-[#2C2A29]">Thanh toán khi nhận hàng (COD)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-[#FAF9F6] border border-[#EAE6DF] rounded-xl cursor-pointer hover:border-[#D4A373] transition">
+                  <input type="radio" name="payment_method" value="bank_transfer" class="text-[#D4A373] focus:ring-[#D4A373]">
+                  <span class="text-sm font-medium text-[#2C2A29]">Chuyển khoản ngân hàng</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Order -->
+            <button type="submit" class="w-full py-4 bg-[#1A1918] hover:bg-[#D4A373] text-white font-medium tracking-wide rounded-xl shadow-lg transition duration-300 flex items-center justify-center space-x-2 cursor-pointer">
+              <span>Đặt Hàng Ngay</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  <% } %>
+</div>
+
+<script>
+  async function updateCartItemQty(itemId, newQty) {
+    try {
+      const response = await fetch('/api/cart/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId, quantity: newQty })
+      });
+      const data = await response.json();
+      if (data.success) {
+        // Reload page to reflect updated quantities and totals easily and reliably
+        window.location.reload();
+      } else {
+        alert(data.error || 'Lỗi cập nhật giỏ hàng');
+      }
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  async function removeCartItem(itemId) {
+    try {
+      const response = await fetch('/api/cart/remove', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId })
+      });
+      const data = await response.json();
+      if (data.success) {
+        window.location.reload();
+      } else {
+        alert(data.error || 'Lỗi xóa sản phẩm');
+      }
+    } catch(err) {
+      console.error(err);
+    }
+  }
+</script>
+
+<%- include('partials/footer') %>

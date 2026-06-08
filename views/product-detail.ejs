@@ -1,0 +1,225 @@
+<%- include('partials/header') %>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Breadcrumb -->
+  <nav class="flex mb-8 text-sm text-[#8C867E]">
+    <a href="/" class="hover:text-[#1A1918] transition">Cửa hàng</a>
+    <span class="mx-2">/</span>
+    <span class="text-[#1A1918] font-medium"><%= product.name %></span>
+  </nav>
+
+  <!-- Product Gallery & Info -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-8 sm:p-12 rounded-3xl border border-[#EAE6DF] shadow-sm">
+    <!-- Image Gallery -->
+    <div class="space-y-6">
+      <div class="aspect-square bg-[#FAF9F6] rounded-2xl overflow-hidden border border-[#EAE6DF] relative">
+        <img
+          id="main-product-image"
+          src="<%= product.primary_image_url || (images.length > 0 ? images[0].url : 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80') %>"
+          alt="<%= product.name %>"
+          class="w-full h-full object-cover transition-all duration-300"
+        />
+        <% if (product.stock === 0) { %>
+          <span class="absolute top-4 left-4 bg-[#1A1918] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+            Hết Hàng
+          </span>
+        <% } %>
+      </div>
+
+      <!-- Thumbnails -->
+      <% if (images.length > 1) { %>
+        <div class="flex space-x-3 overflow-x-auto pb-2">
+          <% images.forEach(function(img, idx) { %>
+            <button
+              onclick="changeMainImage(this, '<%= img.url %>')"
+              class="w-20 h-20 rounded-xl overflow-hidden border-2 <%= img.is_primary === 1 ? 'border-[#D4A373]' : 'border-[#EAE6DF]' %> flex-shrink-0 focus:outline-none transition cursor-pointer"
+            >
+              <img src="<%= img.url %>" alt="<%= product.name %> thumbnail" class="w-full h-full object-cover" />
+            </button>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Product Details Info -->
+    <div class="flex flex-col justify-between">
+      <div>
+        <span class="text-xs uppercase tracking-[0.2em] text-[#D4A373] font-bold block mb-2">
+          <%= product.category_name %>
+        </span>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918] mb-4">
+          <%= product.name %>
+        </h1>
+        <p class="text-2xl font-bold text-[#C2410C] mb-6">
+          <%= formatPrice(product.price) %>
+        </p>
+
+        <!-- Stock Status -->
+        <div class="flex items-center space-x-2 text-sm mb-6">
+          <span class="text-[#8C867E]">Trạng thái:</span>
+          <% if (product.stock > 0) { %>
+            <span class="text-green-600 font-semibold flex items-center">
+              <span class="h-2 w-2 bg-green-600 rounded-full inline-block mr-1.5"></span>
+              Còn hàng (<%= product.stock %> sản phẩm)
+            </span>
+          <% } else { %>
+            <span class="text-red-600 font-semibold flex items-center">
+              <span class="h-2 w-2 bg-red-600 rounded-full inline-block mr-1.5"></span>
+              Hết hàng
+            </span>
+          <% } %>
+        </div>
+
+        <!-- Description -->
+        <div class="border-t border-[#F2EFE9] pt-6 mb-6">
+          <h3 class="font-serif text-lg font-semibold text-[#1A1918] mb-3">Mô tả sản phẩm</h3>
+          <p class="text-sm text-[#5C5752] leading-relaxed font-light">
+            <%= product.description %>
+          </p>
+        </div>
+
+        <!-- Attributes -->
+        <% if (product.attributes) { %>
+          <% 
+            let attributes = {};
+            try {
+              attributes = typeof product.attributes === 'string' ? JSON.parse(product.attributes) : product.attributes;
+            } catch(e) {
+              console.error('Failed to parse attributes', e);
+            }
+          %>
+          <% if (Object.keys(attributes).length > 0) { %>
+            <div class="border-t border-[#F2EFE9] pt-6 mb-8">
+              <h3 class="font-serif text-lg font-semibold text-[#1A1918] mb-3">Thông số kỹ thuật</h3>
+              <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <% Object.entries(attributes).forEach(function([key, value]) { %>
+                  <div class="flex py-1.5 border-b border-[#FAF9F6]">
+                    <span class="text-[#8C867E] w-28 capitalize flex-shrink-0"><%= key %>:</span>
+                    <span class="text-[#2C2A29] font-medium"><%= value %></span>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+          <% } %>
+        <% } %>
+      </div>
+
+      <!-- Add to Cart Action -->
+      <% if (product.stock > 0) { %>
+        <div class="border-t border-[#F2EFE9] pt-6 flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <!-- Quantity Select -->
+          <div class="flex items-center border border-[#EAE6DF] rounded-xl overflow-hidden bg-[#FAF9F6] h-14">
+            <button onclick="adjustQty(-1)" class="px-4 text-[#8C867E] hover:text-[#1A1918] h-full focus:outline-none cursor-pointer font-bold">-</button>
+            <input type="number" id="qty-input" value="1" min="1" max="<%= product.stock %>" class="w-12 text-center bg-transparent text-[#2C2A29] font-bold focus:outline-none border-none text-sm h-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+            <button onclick="adjustQty(1)" class="px-4 text-[#8C867E] hover:text-[#1A1918] h-full focus:outline-none cursor-pointer font-bold">+</button>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button
+            onclick="handleAddToCartDetail('<%= product.id %>')"
+            class="flex-1 h-14 bg-[#1A1918] hover:bg-[#D4A373] text-white font-medium tracking-wide rounded-xl shadow-lg transition duration-300 flex items-center justify-center space-x-2 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" class="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <span>Thêm Vào Giỏ Hàng</span>
+          </button>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <% if (relatedProducts.length > 0) { %>
+    <section class="mt-20">
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1918] mb-8 text-center sm:text-left">
+        Sản Phẩm Tương Tự
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <% relatedProducts.forEach(function(p) { %>
+          <a
+            href="/product/<%= p.slug %>"
+            data-testid="product-card"
+            data-product-id="<%= p.id %>"
+            data-product-name="<%= p.name %>"
+            data-product-price="<%= p.price %>"
+            class="group bg-white rounded-2xl border border-[#EAE6DF] overflow-hidden hover:shadow-xl hover:border-[#D4A373]/50 transition-all duration-300 flex flex-col justify-between"
+          >
+            <div>
+              <div class="relative aspect-square overflow-hidden bg-[#FAF9F6]">
+                <img
+                  src="<%= p.primary_image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80' %>"
+                  alt="<%= p.name %>"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-5">
+                <span class="text-[10px] uppercase tracking-widest text-[#8C867E] font-medium block mb-1.5">
+                  <%= p.category_name %>
+                </span>
+                <h3 class="font-serif text-sm font-bold text-[#1A1918] group-hover:text-[#D4A373] transition line-clamp-1">
+                  <%= p.name %>
+                </h3>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex items-center justify-between border-t border-[#FAF9F6] mt-4">
+              <span class="text-sm font-bold text-[#C2410C]">
+                <%= formatPrice(p.price) %>
+              </span>
+              <button
+                data-testid="add-to-cart-quick"
+                data-product-id="<%= p.id %>"
+                <%= p.stock === 0 ? 'disabled' : '' %>
+                onclick="handleAddToCartClick(event, '<%= p.id %>')"
+                class="p-1.5 rounded-full bg-[#1A1918] text-white hover:bg-[#D4A373] transition-colors disabled:bg-gray-200 disabled:text-gray-400 cursor-pointer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+</div>
+
+<script>
+  function changeMainImage(btn, url) {
+    // Update main image source
+    document.getElementById('main-product-image').src = url;
+    
+    // Update thumbnail border styling
+    const buttons = btn.parentElement.children;
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('border-[#D4A373]');
+      buttons[i].classList.add('border-[#EAE6DF]');
+    }
+    btn.classList.remove('border-[#EAE6DF]');
+    btn.classList.add('border-[#D4A373]');
+  }
+
+  function adjustQty(amount) {
+    const input = document.getElementById('qty-input');
+    const min = parseInt(input.min) || 1;
+    const max = parseInt(input.max) || 99;
+    let val = parseInt(input.value) || 1;
+    val = Math.max(min, Math.min(max, val + amount));
+    input.value = val;
+  }
+
+  async function handleAddToCartDetail(productId) {
+    const input = document.getElementById('qty-input');
+    const quantity = parseInt(input.value) || 1;
+    
+    const success = await addToCart(productId, quantity);
+    if (success) {
+      // Show feedback or redirect to cart
+      window.location.href = '/cart';
+    }
+  }
+</script>
+
+<%- include('partials/footer') %>

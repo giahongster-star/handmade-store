@@ -179,11 +179,11 @@
       "slug": "chau-cay-gom-at-nung-khac-noi",
       "description": "Chậu trồng cây để bàn làm từ đất nung tự nhiên, họa tiết hình học được khắc nổi mộc mạc phong cách vintage.",
       "price": 180000,
-      "stock": 15,
+      "stock": 14,
       "status": "active",
       "attributes": "{\"material\":\"Đất nung đỏ\",\"dimensions\":\"12cm x 12cm\",\"drainage_hole\":\"Có\",\"weight\":\"400g\"}",
       "created_at": "2026-06-06T13:19:23.358Z",
-      "updated_at": "2026-06-06T13:19:23.358Z"
+      "updated_at": "2026-06-08T14:10:09.688Z"
     },
     {
       "id": "232b098f-cdf8-4e24-b283-5dfe6acc9f27",
@@ -1253,8 +1253,48 @@
       "created_at": "2026-06-06T13:19:23.359Z"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "cart_1qvzflpnumq5a46jc",
+      "user_id": null,
+      "created_at": "2026-06-08T14:01:12.989Z",
+      "updated_at": "2026-06-08T14:01:12.989Z"
+    }
+  ],
   "cart_items": [],
-  "orders": [],
-  "order_items": []
+  "orders": [
+    {
+      "id": "ord_vr7kt50vgmq5afonj",
+      "code": "AC-655680",
+      "total_amount": 210000,
+      "shipping_fee": 30000,
+      "status": "pending",
+      "payment_status": "unpaid",
+      "payment_method": "cod",
+      "shipping_address": "123 Le Loi, Ho Chi Minh",
+      "created_at": "2026-06-08T14:10:09.679Z",
+      "updated_at": "2026-06-08T14:10:09.679Z"
+    }
+  ],
+  "order_items": [
+    {
+      "id": "oi_zlhbh9lc7mq5afonn",
+      "order_id": "ord_vr7kt50vgmq5afonj",
+      "product_id": "ad925fc1-0008-465d-9820-ea61bb67d9db",
+      "price": 180000,
+      "quantity": 1,
+      "created_at": "2026-06-08T14:10:09.683Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_kda00stifmq5aambm",
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "password",
+      "role": "user",
+      "created_at": "2026-06-08T14:06:13.378Z",
+      "updated_at": "2026-06-08T14:06:13.378Z"
+    }
+  ]
 }

@@ -1,0 +1,237 @@
+<%- include('partials/header') %>
+
+<div class="pb-16">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-[#1A1918] py-24 px-4 text-center sm:px-6 lg:px-8">
+    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"></div>
+    <div class="relative max-w-3xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#D4A373] font-semibold mb-3 block">
+        Nghệ Thuật Chế Tác Bản Địa
+      </span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+        Thổi Hồn Vào Không Gian Sống Của Bạn
+      </h1>
+      <p class="text-base sm:text-lg text-[#D6D3D1] mb-8 max-w-xl mx-auto font-light leading-relaxed">
+        Khám phá bộ sưu tập đồ gốm nung hỏa biến, đồ da thật khâu tay và các sản phẩm nghệ thuật độc bản làm tay 100%.
+      </p>
+      <div class="max-w-md mx-auto relative">
+        <input
+          type="text"
+          id="search-input"
+          data-testid="search-input"
+          placeholder="Tìm kiếm sản phẩm độc đáo của bạn..."
+          value="<%= search %>"
+          onkeypress="handleSearchKeyPress(event)"
+          className="w-full px-5 py-4 pr-12 rounded-full border-none bg-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#D4A373] backdrop-blur-md transition-all shadow-lg text-sm"
+          style="width: 100%; border: none; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 9999px; padding: 1rem 3rem 1rem 1.25rem; font-size: 0.875rem;"
+        />
+        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 cursor-pointer" onclick="executeSearch()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.608 10.608Z" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Categories & Products -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <div class="flex flex-col lg:flex-row gap-8">
+      
+      <!-- Sidebar Filters -->
+      <aside class="w-full lg:w-64 flex-shrink-0 relative z-10">
+        <div class="bg-white p-6 rounded-2xl border border-[#EAE6DF] sticky top-28">
+          <h2 class="font-serif text-lg font-bold text-[#1A1918] mb-4 pb-2 border-b border-[#F2EFE9]">
+            Bộ Lọc Tìm Kiếm
+          </h2>
+          
+          <!-- Categories -->
+          <div class="mb-6">
+            <h3 class="text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-3">
+              Danh Mục
+            </h3>
+            <div class="space-y-2">
+              <a
+                href="/"
+                data-testid="category-filter-all"
+                class="block w-full text-left px-3 py-2 rounded-lg text-sm transition-all <%= !categorySlug ? 'bg-[#F2EFE9] text-[#1A1918] font-semibold' : 'text-[#5C5752] hover:bg-[#FAF9F6] hover:text-[#1A1918]' %>"
+              >
+                Tất cả sản phẩm
+              </a>
+              <% categories.forEach(function(cat) { %>
+                <a
+                  href="/?category=<%= cat.slug %><%= search ? '&search=' + encodeURIComponent(search) : '' %><%= sort ? '&sort=' + sort : '' %>"
+                  data-testid="category-filter-<%= cat.slug %>"
+                  class="block w-full text-left px-3 py-2 rounded-lg text-sm transition-all <%= categorySlug === cat.slug ? 'bg-[#F2EFE9] text-[#1A1918] font-semibold' : 'text-[#5C5752] hover:bg-[#FAF9F6] hover:text-[#1A1918]' %>"
+                >
+                  <%= cat.name %>
+                </a>
+              <% }); %>
+            </div>
+          </div>
+
+          <!-- Sort Options -->
+          <div>
+            <h3 class="text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-3">
+              Sắp Xếp
+            </h3>
+            <select
+              id="sort-select"
+              data-testid="sort-select"
+              onchange="handleSortChange(this.value)"
+              class="w-full bg-[#FAF9F6] border border-[#EAE6DF] rounded-lg px-3 py-2 text-sm text-[#2C2A29] focus:outline-none focus:ring-1 focus:ring-[#D4A373]"
+            >
+              <option value="created_at:desc" <%= sort === 'created_at:desc' ? 'selected' : '' %>>Mới nhất</option>
+              <option value="price:asc" <%= sort === 'price:asc' ? 'selected' : '' %>>Giá: Thấp đến Cao</option>
+              <option value="price:desc" <%= sort === 'price:desc' ? 'selected' : '' %>>Giá: Cao đến Thấp</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Product Grid -->
+      <div class="flex-1">
+        <% if (products.length === 0) { %>
+          <div class="text-center py-16 bg-white rounded-2xl border border-[#EAE6DF] p-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-16 h-16 text-[#8C867E] mx-auto mb-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m21-21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.608 10.608Z" />
+            </svg>
+            <h3 class="font-serif text-lg font-semibold text-[#1A1918] mb-1">Không tìm thấy sản phẩm</h3>
+            <p class="text-sm text-[#8C867E]">Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm của bạn.</p>
+          </div>
+        <% } else { %>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% products.forEach(function(product) { %>
+              <a
+                href="/product/<%= product.slug %>"
+                data-testid="product-card"
+                data-product-id="<%= product.id %>"
+                data-product-name="<%= product.name %>"
+                data-product-price="<%= product.price %>"
+                class="group bg-white rounded-2xl border border-[#EAE6DF] overflow-hidden hover:shadow-xl hover:border-[#D4A373]/50 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <!-- Image Container -->
+                  <div class="relative aspect-square overflow-hidden bg-[#FAF9F6]">
+                    <img
+                      src="<%= product.primary_image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80' %>"
+                      alt="<%= product.name %>"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <% if (product.stock === 0) { %>
+                      <span class="absolute top-3 left-3 bg-[#1A1918] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                        Hết Hàng
+                      </span>
+                    <% } %>
+                  </div>
+
+                  <!-- Text details -->
+                  <div class="p-5">
+                    <span class="text-[10px] uppercase tracking-widest text-[#8C867E] font-medium block mb-1.5">
+                      <%= product.category_name %>
+                    </span>
+                    <h3 class="font-serif text-base font-bold text-[#1A1918] group-hover:text-[#D4A373] transition duration-300 line-clamp-1">
+                      <%= product.name %>
+                    </h3>
+                    <p class="text-xs text-[#8C867E] line-clamp-2 mt-1.5 leading-relaxed font-light">
+                      <%= product.description %>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Footer Section -->
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-[#FAF9F6] mt-4">
+                  <span class="text-base font-bold text-[#C2410C]">
+                    <%= formatPrice(product.price) %>
+                  </span>
+                  
+                  <button
+                    data-testid="add-to-cart-quick"
+                    data-product-id="<%= product.id %>"
+                    <%= product.stock === 0 ? 'disabled' : '' %>
+                    onclick="handleAddToCartClick(event, '<%= product.id %>')"
+                    class="p-2 rounded-full bg-[#1A1918] text-white hover:bg-[#D4A373] transition-colors disabled:bg-gray-200 disabled:text-gray-400 cursor-pointer disabled:cursor-not-allowed"
+                    title="Thêm vào giỏ"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </button>
+                </div>
+              </a>
+            <% }); %>
+          </div>
+
+          <!-- Pagination -->
+          <% if (totalPages > 1) { %>
+            <div class="flex items-center justify-center space-x-2 mt-12">
+              <a
+                href="/?page=<%= Math.max(currentPage - 1, 1) %><%= categorySlug ? '&category=' + categorySlug : '' %><%= search ? '&search=' + encodeURIComponent(search) : '' %><%= sort ? '&sort=' + sort : '' %>"
+                class="px-4 py-2 border border-[#EAE6DF] rounded-xl text-sm text-[#5C5752] hover:bg-[#F2EFE9] <%= currentPage === 1 ? 'pointer-events-none opacity-50' : '' %> transition"
+              >
+                Trước
+              </a>
+              <span class="text-sm font-medium text-[#2C2A29]">
+                Trang <%= currentPage %> / <%= totalPages %>
+              </span>
+              <a
+                href="/?page=<%= Math.min(currentPage + 1, totalPages) %><%= categorySlug ? '&category=' + categorySlug : '' %><%= search ? '&search=' + encodeURIComponent(search) : '' %><%= sort ? '&sort=' + sort : '' %>"
+                class="px-4 py-2 border border-[#EAE6DF] rounded-xl text-sm text-[#5C5752] hover:bg-[#F2EFE9] <%= currentPage === totalPages ? 'pointer-events-none opacity-50' : '' %> transition"
+              >
+                Sau
+              </a>
+            </div>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleSearchKeyPress(e) {
+    if (e.key === 'Enter') {
+      executeSearch();
+    }
+  }
+
+  function executeSearch() {
+    const keyword = document.getElementById('search-input').value.trim();
+    let url = '/';
+    const params = [];
+    if (keyword) {
+      params.push('search=' + encodeURIComponent(keyword));
+    }
+    const cat = '<%= categorySlug %>';
+    if (cat) {
+      params.push('category=' + cat);
+    }
+    const sort = '<%= sort %>';
+    if (sort) {
+      params.push('sort=' + sort);
+    }
+    if (params.length > 0) {
+      url += '?' + params.join('&');
+    }
+    window.location.href = url;
+  }
+
+  function handleSortChange(sortVal) {
+    let url = '/';
+    const params = [];
+    params.push('sort=' + sortVal);
+    const keyword = '<%= search %>';
+    if (keyword) {
+      params.push('search=' + encodeURIComponent(keyword));
+    }
+    const cat = '<%= categorySlug %>';
+    if (cat) {
+      params.push('category=' + cat);
+    }
+    url += '?' + params.join('&');
+    window.location.href = url;
+  }
+</script>
+
+<%- include('partials/footer') %>

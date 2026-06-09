@@ -1337,22 +1337,30 @@
       "rating": 4,
       "comment": "SSan pham tuyet voi va chat luong rat tot!",
       "created_at": "2026-06-09T03:12:58.415Z"
+    },
+    {
+      "id": "rev_fu1yw5xm1mq658vu5",
+      "product_id": "a2657525-a213-48f8-b06b-5d490c2c6270",
+      "user_name": "Test User",
+      "rating": 5,
+      "comment": "SSan pham thu cong rat sac net va tuyet dep!",
+      "created_at": "2026-06-09T04:32:40.493Z"
     }
   ],
   "wishlists": [
-    {
-      "id": "wsh_llj4fck2gmq62akm7",
-      "user_id": "usr_kda00stifmq5aambm",
-      "anonymous_id": "cart_1qvzflpnumq5a46jc",
-      "product_id": "a2657525-a213-48f8-b06b-5d490c2c6270",
-      "created_at": "2026-06-09T03:10:00.416Z"
-    },
     {
       "id": "wsh_6h96otq7dmq62d8lp",
       "user_id": "usr_kda00stifmq5aambm",
       "anonymous_id": "cart_1qvzflpnumq5a46jc",
       "product_id": "bdd1e8bc-0f31-4bd8-9bbd-2af31e537369",
       "created_at": "2026-06-09T03:12:04.813Z"
+    },
+    {
+      "id": "wsh_fedcu368nmq65792i",
+      "user_id": "usr_kda00stifmq5aambm",
+      "anonymous_id": "cart_1qvzflpnumq5a46jc",
+      "product_id": "a2657525-a213-48f8-b06b-5d490c2c6270",
+      "created_at": "2026-06-09T04:31:24.330Z"
     }
   ]
 }

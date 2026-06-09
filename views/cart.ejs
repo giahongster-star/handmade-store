@@ -5,8 +5,8 @@
 
   <% if (items.length === 0) { %>
     <div class="text-center py-20 bg-white rounded-3xl border border-[#EAE6DF] p-8 max-w-2xl mx-auto shadow-sm">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-16 h-16 text-[#8C867E] mx-auto mb-4">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-16 h-16 text-[#8C867E] mx-auto mb-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
       </svg>
       <h3 class="font-serif text-xl font-bold text-[#1A1918] mb-2">Giỏ hàng trống</h3>
       <p class="text-sm text-[#8C867E] mb-6">Bạn chưa chọn sản phẩm nào để thêm vào giỏ hàng.</p>
@@ -52,8 +52,8 @@
                     <%= formatPrice(item.price * item.quantity) %>
                   </span>
                   <button onclick="removeCartItem('<%= item.id %>')" class="text-[#8C867E] hover:text-red-600 transition p-1 cursor-pointer" title="Xóa khỏi giỏ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" class="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.34 9m-4.72 0-.34-9m4.72-9-.34 18M21 12H3m2 0h14" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.34 9m-4.72 0-.34-9m4.72-9-.34 18M21 12H3m2 0h14" />
                     </svg>
                   </button>
                 </div>

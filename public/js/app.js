@@ -194,3 +194,65 @@ window.addEventListener('click', function(e) {
     }
   }
 });
+
+// Wishlist click handler
+async function handleWishlistClick(e, productId) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  try {
+    const res = await fetch('/api/wishlist/toggle', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_id: productId })
+    });
+    const data = await res.json();
+    
+    if (data.success) {
+      // 1. Update Header Wishlist Badge
+      const badge = document.getElementById('wishlist-badge');
+      if (badge) {
+        badge.textContent = data.wishlistTotalItems;
+        if (data.wishlistTotalItems > 0) {
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+      
+      // 2. Update all heart icons on the page matching this product-id
+      const buttons = document.querySelectorAll(`[data-product-id="${productId}"][data-testid="wishlist-toggle-btn"], #detail-wishlist-btn[data-product-id="${productId}"]`);
+      buttons.forEach(btn => {
+        const svg = btn.querySelector('.heart-icon');
+        if (svg) {
+          if (data.isFavorited) {
+            svg.setAttribute('fill', '#EF4444');
+            svg.setAttribute('stroke', '#EF4444');
+            btn.setAttribute('title', 'Xóa khỏi yêu thích');
+          } else {
+            svg.setAttribute('fill', 'none');
+            // If it is on details page, stroke should be dark gray, else current color
+            if (btn.id === 'detail-wishlist-btn') {
+              svg.setAttribute('stroke', '#2C2A29');
+            } else {
+              svg.setAttribute('stroke', 'currentColor');
+            }
+            btn.setAttribute('title', 'Thêm vào yêu thích');
+          }
+        }
+      });
+      
+      // 3. Show Feedback Toast
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 left-5 bg-[#1A1918] text-white px-5 py-3 rounded-xl shadow-2xl text-xs z-50 animate-bounce';
+      toast.textContent = data.isFavorited ? 'Đã thêm vào danh sách yêu thích!' : 'Đã xóa khỏi danh sách yêu thích!';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2500);
+    } else {
+      alert(data.error || 'Có lỗi xảy ra.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Lỗi kết nối máy chủ.');
+  }
+}

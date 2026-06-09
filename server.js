@@ -75,6 +75,18 @@ app.use(async (req, res, next) => {
   next();
 });
 
+// Middleware to inject wishlist quantity in locals for header rendering
+app.use(async (req, res, next) => {
+  try {
+    const userId = req.user ? req.user.id : null;
+    const result = await get('SELECT COUNT(*) as count FROM wishlists WHERE user_id = ? OR anonymous_id = ?', [userId, req.cartId]);
+    res.locals.wishlistTotalItems = result ? result.count : 0;
+  } catch (err) {
+    res.locals.wishlistTotalItems = 0;
+  }
+  next();
+});
+
 // ==========================================
 // ROUTES
 // ==========================================
@@ -149,6 +161,14 @@ app.get('/', async (req, res) => {
     const total = countResult ? countResult.total : 0;
     const totalPages = Math.ceil(total / limit) || 1;
 
+    // Fetch user's wishlist product ids for heart icons
+    const userId = req.user ? req.user.id : null;
+    const wishlistItems = await all(
+      'SELECT w.id, w.product_id, p.name, p.price, p.slug, pi.url as primary_image_url FROM wishlists w JOIN products p ON w.product_id = p.id LEFT JOIN product_images pi ON p.id = pi.product_id AND pi.is_primary = 1 WHERE w.user_id = ? OR w.anonymous_id = ?',
+      [userId, req.cartId]
+    );
+    const favoritedProductIds = wishlistItems.map(item => item.product_id);
+
     res.render('index', {
       title: 'AuraCraft | Đồ Thủ Công Mỹ Nghệ Tinh Sảo',
       products,
@@ -158,6 +178,7 @@ app.get('/', async (req, res) => {
       sort,
       currentPage: page,
       totalPages,
+      favoritedProductIds,
     });
   } catch (err) {
     console.error('Error serving homepage:', err);
@@ -184,11 +205,26 @@ app.get('/product/:slug', async (req, res) => {
       [product.category_id, product.id]
     );
 
+    // Get reviews and ratings stats
+    const reviews = await all('SELECT * FROM reviews WHERE product_id = ? ORDER BY created_at DESC', [product.id]);
+    const ratingStats = await get('SELECT COUNT(*) as count, AVG(rating) as avg_rating FROM reviews WHERE product_id = ?', [product.id]);
+
+    // Check if favorited
+    const userId = req.user ? req.user.id : null;
+    const favorite = await get(
+      'SELECT id FROM wishlists WHERE (user_id = ? OR anonymous_id = ?) AND product_id = ?',
+      [userId, req.cartId, product.id]
+    );
+    const isFavorited = !!favorite;
+
     res.render('product-detail', {
       title: `${product.name} | AuraCraft`,
       product,
       images,
       relatedProducts,
+      reviews,
+      ratingStats: ratingStats || { count: 0, avg_rating: 0 },
+      isFavorited,
     });
   } catch (err) {
     console.error('Error serving product detail:', err);
@@ -489,6 +525,127 @@ app.post('/api/recommendation', async (req, res) => {
   } catch (err) {
     console.error('Error fetching recommendations from wrapper API:', err);
     res.json({ item: [], keyword: '', lastItem: '' });
+  }
+});
+
+// ==========================================
+// RATING, REVIEW & WISHLIST ROUTES
+// ==========================================
+
+// 1b. Redirect song links from popup to product details page
+app.get('/song/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const product = await get('SELECT p.*, c.name as category_name FROM products p WHERE p.id = ?', [id]);
+    if (product && product.slug) {
+      return res.redirect(`/product/${product.slug}`);
+    }
+    res.redirect('/');
+  } catch (err) {
+    console.error('Error redirecting song link:', err);
+    res.redirect('/');
+  }
+});
+
+// Wishlist Page View
+app.get('/wishlist', async (req, res) => {
+  try {
+    const userId = req.user ? req.user.id : null;
+    const anonId = req.cartId;
+
+    const items = await all(
+      'SELECT w.id, w.product_id, p.name, p.price, p.slug, pi.url as primary_image_url FROM wishlists w JOIN products p ON w.product_id = p.id LEFT JOIN product_images pi ON p.id = pi.product_id AND pi.is_primary = 1 WHERE w.user_id = ? OR w.anonymous_id = ?',
+      [userId, anonId]
+    );
+
+    res.render('wishlist', {
+      title: 'Danh Sách Yêu Thích | AuraCraft',
+      items
+    });
+  } catch (err) {
+    console.error('Error rendering wishlist page:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Review API: Submit a review
+app.post('/product/:slug/review', async (req, res) => {
+  try {
+    const slug = req.params.slug;
+    const { rating, comment } = req.body;
+    let user_name = req.body.user_name || 'Khách';
+
+    if (req.user) {
+      user_name = req.user.name;
+    }
+
+    const product = await get('SELECT p.*, c.name as category_name FROM products p WHERE p.slug = ?', [slug]);
+    if (!product) {
+      return res.status(404).send('Sản phẩm không tồn tại');
+    }
+
+    const reviewId = 'rev_' + generateId();
+    await run('INSERT INTO reviews (id, product_id, user_name, rating, comment) VALUES (?, ?, ?, ?, ?)', [
+      reviewId,
+      product.id,
+      user_name,
+      parseInt(rating) || 5,
+      comment || ''
+    ]);
+
+    res.redirect(`/product/${slug}#reviews`);
+  } catch (err) {
+    console.error('Error submitting review:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Wishlist API: Toggle Favorite Status
+app.post('/api/wishlist/toggle', async (req, res) => {
+  try {
+    const { product_id } = req.body;
+    if (!product_id) {
+      return res.json({ success: false, error: 'Thiếu mã sản phẩm.' });
+    }
+
+    const userId = req.user ? req.user.id : null;
+    const anonId = req.cartId;
+
+    // Check if already in wishlist
+    const existing = await get(
+      'SELECT id FROM wishlists WHERE (user_id = ? OR anonymous_id = ?) AND product_id = ?',
+      [userId, anonId, product_id]
+    );
+
+    let isFavorited = false;
+    if (existing) {
+      // Remove from wishlist
+      await run(
+        'DELETE FROM wishlists WHERE (user_id = ? OR anonymous_id = ?) AND product_id = ?',
+        [userId, anonId, product_id]
+      );
+      isFavorited = false;
+    } else {
+      // Add to wishlist
+      const wishId = 'wsh_' + generateId();
+      await run(
+        'INSERT INTO wishlists (id, user_id, anonymous_id, product_id) VALUES (?, ?, ?, ?)',
+        [wishId, userId, anonId, product_id]
+      );
+      isFavorited = true;
+    }
+
+    // Get total count
+    const countResult = await get(
+      'SELECT COUNT(*) as count FROM wishlists WHERE user_id = ? OR anonymous_id = ?',
+      [userId, anonId]
+    );
+    const wishlistTotalItems = countResult ? countResult.count : 0;
+
+    res.json({ success: true, isFavorited, wishlistTotalItems });
+  } catch (err) {
+    console.error('Error toggling wishlist:', err);
+    res.json({ success: false, error: err.message });
   }
 });
 

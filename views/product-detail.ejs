@@ -47,9 +47,27 @@
         <span class="text-xs uppercase tracking-[0.2em] text-[#D4A373] font-bold block mb-2">
           <%= product.category_name %>
         </span>
-        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918] mb-4">
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918] mb-2">
           <%= product.name %>
         </h1>
+
+        <!-- Ratings & Reviews Summary -->
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="flex items-center text-amber-500">
+            <% const roundedRating = Math.round(ratingStats.avg_rating) %>
+            <% for (let i = 1; i <= 5; i++) { %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="<%= i <= roundedRating ? 'currentColor' : 'none' %>" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.195-.39.81-.39.995 0l2.318 4.648 5.121.741c.427.062.597.59.288.891l-3.71 3.616 1.077 5.104c.09.428-.358.755-.736.55L12 16.657l-4.57 2.404c-.378.205-.826-.122-.736-.55l1.077-5.104-3.71-3.616c-.31-.3-.14-.829.288-.891l5.12-.741 2.32-4.648Z" />
+              </svg>
+            <% } %>
+          </div>
+          <span class="text-sm font-semibold text-[#1A1918]"><%= ratingStats.avg_rating %>/5.0</span>
+          <span class="text-xs text-[#8C867E]">|</span>
+          <a href="#reviews" class="text-xs text-[#D4A373] hover:underline transition font-medium">
+            <%= ratingStats.count %> đánh giá
+          </a>
+        </div>
+
         <p class="text-2xl font-bold text-[#C2410C] mb-6">
           <%= formatPrice(product.price) %>
         </p>
@@ -124,6 +142,31 @@
             </svg>
             <span>Thêm Vào Giỏ Hàng</span>
           </button>
+
+          <!-- Wishlist Heart Button -->
+          <button
+            type="button"
+            id="detail-wishlist-btn"
+            data-product-id="<%= product.id %>"
+            onclick="handleWishlistClick(event, '<%= product.id %>')"
+            class="w-14 h-14 border border-[#EAE6DF] hover:border-[#D4A373] hover:bg-[#F2EFE9] rounded-xl flex items-center justify-center transition cursor-pointer"
+            title="<%= isFavorited ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích' %>"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="<%= isFavorited ? '#EF4444' : 'none' %>"
+              viewBox="0 0 24 24"
+              strokeWidth={1.8}
+              stroke="<%= isFavorited ? '#EF4444' : '#2C2A29' %>"
+              class="w-6 h-6 heart-icon"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+          </button>
         </div>
       <% } %>
     </div>
@@ -184,6 +227,85 @@
       </div>
     </section>
   <% } %>
+
+  <!-- Reviews & Ratings Section -->
+  <section id="reviews" class="mt-20 border-t border-[#F2EFE9] pt-12">
+    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#1A1918] mb-8">
+      Đánh giá sản phẩm (<%= ratingStats.count %>)
+    </h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Reviews List -->
+      <div class="lg:col-span-2 space-y-6">
+        <% if (reviews.length === 0) { %>
+          <p class="text-sm text-[#8C867E] italic">Chưa có đánh giá nào cho sản phẩm này. Hãy là người đầu tiên nhận xét!</p>
+        <% } else { %>
+          <% reviews.forEach(function(review) { %>
+            <div class="bg-white p-6 rounded-2xl border border-[#EAE6DF] space-y-3 shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-sm text-[#1A1918]"><%= review.user_name %></span>
+                <span class="text-xs text-[#8C867E]">
+                  <%= new Date(review.created_at).toLocaleDateString('vi-VN') %>
+                </span>
+              </div>
+              <!-- Rating Stars -->
+              <div class="flex items-center text-amber-500">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="<%= i <= review.rating ? 'currentColor' : 'none' %>" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.195-.39.81-.39.995 0l2.318 4.648 5.121.741c.427.062.597.59.288.891l-3.71 3.616 1.077 5.104c.09.428-.358.755-.736.55L12 16.657l-4.57 2.404c-.378.205-.826-.122-.736-.55l1.077-5.104-3.71-3.616c-.31-.3-.14-.829.288-.891l5.12-.741 2.32-4.648Z" />
+                  </svg>
+                <% } %>
+              </div>
+              <p class="text-sm text-[#5C5752] leading-relaxed font-light">
+                <%= review.comment %>
+              </p>
+            </div>
+          <% }); %>
+        <% } %>
+      </div>
+      
+      <!-- Review Form -->
+      <div class="bg-white p-8 rounded-3xl border border-[#EAE6DF] h-fit">
+        <h3 class="font-serif text-lg font-bold text-[#1A1918] mb-6">Viết nhận xét của bạn</h3>
+        <form action="/product/<%= product.slug %>/review" method="POST" class="space-y-4">
+          <% if (!user) { %>
+            <div>
+              <label for="review-user-name" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Tên của bạn</label>
+              <input type="text" id="review-user-name" name="user_name" placeholder="Ví dụ: Hoàng Anh" required class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm" />
+            </div>
+          <% } %>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Đánh giá sao</label>
+            <div class="flex items-center space-x-2" id="star-selector">
+              <% for (let i = 1; i <= 5; i++) { %>
+                <button
+                  type="button"
+                  onclick="setFormRating(<%= i %>)"
+                  class="text-amber-500 hover:scale-110 transition focus:outline-none cursor-pointer"
+                  title="<%= i %> Sao"
+                >
+                  <svg id="form-star-<%= i %>" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.195-.39.81-.39.995 0l2.318 4.648 5.121.741c.427.062.597.59.288.891l-3.71 3.616 1.077 5.104c.09.428-.358.755-.736.55L12 16.657l-4.57 2.404c-.378.205-.826-.122-.736-.55l1.077-5.104-3.71-3.616c-.31-.3-.14-.829.288-.891l5.12-.741 2.32-4.648Z" />
+                  </svg>
+                </button>
+              <% } %>
+            </div>
+            <input type="hidden" name="rating" id="rating-value" value="5" />
+          </div>
+          <div>
+            <label for="review-comment" class="block text-xs uppercase tracking-wider text-[#8C867E] font-semibold mb-2">Bình luận nhận xét</label>
+            <textarea id="review-comment" name="comment" rows="4" placeholder="Nhận xét chi tiết của bạn về chất lượng và độ tinh xảo..." required class="w-full px-4 py-3 rounded-xl border border-[#EAE6DF] focus:outline-none focus:ring-1 focus:ring-[#D4A373] text-sm resize-none"></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full h-12 bg-[#1A1918] hover:bg-[#D4A373] text-white font-medium text-sm rounded-xl transition cursor-pointer shadow-md"
+          >
+            Gửi Đánh Giá
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -218,6 +340,18 @@
     if (success) {
       // Show feedback or redirect to cart
       window.location.href = '/cart';
+    }
+  }
+
+  function setFormRating(rating) {
+    document.getElementById('rating-value').value = rating;
+    for (let i = 1; i <= 5; i++) {
+      const star = document.getElementById('form-star-' + i);
+      if (i <= rating) {
+        star.setAttribute('fill', 'currentColor');
+      } else {
+        star.setAttribute('fill', 'none');
+      }
     }
   }
 </script>

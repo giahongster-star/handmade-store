@@ -1,0 +1,131 @@
+<%- include('partials/header') %>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center max-w-xl mx-auto mb-16">
+    <span class="text-xs uppercase tracking-[0.3em] text-[#D4A373] font-semibold mb-3 block">BỘ SƯU TẬP CỦA BẠN</span>
+    <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#1A1918]">Danh Sách Yêu Thích</h1>
+    <p class="text-sm text-[#8C867E] mt-3 font-light leading-relaxed">
+      Lưu trữ những sản phẩm thủ công độc bản được chế tác tinh xảo mà bạn yêu thích nhất tại AuraCraft.
+    </p>
+  </div>
+
+  <% if (items.length === 0) { %>
+    <div class="text-center py-20 bg-white rounded-3xl border border-[#EAE6DF] max-w-2xl mx-auto p-8 shadow-sm">
+      <div class="w-20 h-20 bg-[#FAF9F6] rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" class="w-10 h-10 text-[#8C867E]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+      </div>
+      <h3 class="font-serif text-xl font-bold text-[#1A1918] mb-2">Danh sách yêu thích trống</h3>
+      <p class="text-sm text-[#8C867E] mb-8 font-light">Hãy thả tim những sản phẩm độc đáo bạn thích khi khám phá cửa hàng nhé.</p>
+      <a href="/" class="inline-flex h-12 items-center justify-center px-8 bg-[#1A1918] hover:bg-[#D4A373] text-white font-medium text-sm rounded-xl transition shadow-md">
+        Khám phá sản phẩm
+      </a>
+    </div>
+  <% } else { %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <% items.forEach(function(item) { %>
+        <div
+          id="wishlist-card-<%= item.product_id %>"
+          class="group bg-white rounded-2xl border border-[#EAE6DF] overflow-hidden hover:shadow-xl hover:border-[#D4A373]/50 transition-all duration-300 flex flex-col justify-between"
+        >
+          <div>
+            <!-- Image Area -->
+            <div class="relative aspect-square overflow-hidden bg-[#FAF9F6]">
+              <a href="/product/<%= item.slug %>">
+                <img
+                  src="<%= item.primary_image_url || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80' %>"
+                  alt="<%= item.name %>"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+              <!-- Remove Wishlist Button -->
+              <button
+                type="button"
+                onclick="handleRemoveWishlist(event, '<%= item.product_id %>')"
+                class="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-red-500 shadow-md hover:scale-110 transition cursor-pointer"
+                title="Xóa khỏi danh sách yêu thích"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4">
+                  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Details -->
+            <div class="p-5">
+              <a href="/product/<%= item.slug %>" class="block group-hover:text-[#D4A373] transition">
+                <h3 class="font-serif text-base font-bold text-[#1A1918] group-hover:text-[#D4A373] transition line-clamp-1">
+                  <%= item.name %>
+                </h3>
+              </a>
+              <span class="text-base font-bold text-[#C2410C] block mt-2">
+                <%= formatPrice(item.price) %>
+              </span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="p-5 pt-0 border-t border-[#FAF9F6] mt-4 flex space-x-3">
+            <button
+              onclick="handleWishlistAddToCart('<%= item.product_id %>')"
+              class="flex-grow h-10 bg-[#1A1918] hover:bg-[#D4A373] text-white font-medium text-xs rounded-lg shadow-sm transition flex items-center justify-center space-x-1.5 cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" class="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+              </svg>
+              <span>Thêm vào giỏ</span>
+            </button>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+</div>
+
+<script>
+  async function handleRemoveWishlist(e, productId) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const res = await fetch('/api/wishlist/toggle', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_id: productId })
+    });
+    const data = await res.json();
+    
+    if (data.success) {
+      // Remove item card from DOM
+      const card = document.getElementById('wishlist-card-' + productId);
+      if (card) {
+        card.remove();
+      }
+      
+      // Update badge
+      const badge = document.getElementById('wishlist-badge');
+      if (data.wishlistTotalItems > 0) {
+        badge.textContent = data.wishlistTotalItems;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+        window.location.reload(); // Reload to show empty message
+      }
+    }
+  }
+
+  async function handleWishlistAddToCart(productId) {
+    const success = await addToCart(productId, 1);
+    if (success) {
+      // Show dynamic notification
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 left-5 bg-[#1A1918] text-white px-5 py-3 rounded-xl shadow-2xl text-xs z-50 animate-bounce';
+      toast.textContent = 'Đã thêm sản phẩm vào giỏ hàng!';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2500);
+    }
+  }
+</script>
+
+<%- include('partials/footer') %>

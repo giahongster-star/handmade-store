@@ -20,7 +20,9 @@ const defaultData = {
   cart_items: [],
   orders: [],
   order_items: [],
-  users: []
+  users: [],
+  reviews: [],
+  wishlists: []
 };
 
 // Global in-memory cache for Vercel execution contexts
@@ -250,6 +252,48 @@ export const run = async (sql, params = []) => {
     return { id, changes: 1 };
   }
 
+  // 14. Insert Review
+  if (cleanedSql.startsWith('INSERT INTO reviews')) {
+    const [id, product_id, user_name, rating, comment] = params;
+    data.reviews = data.reviews || [];
+    data.reviews.push({
+      id,
+      product_id,
+      user_name,
+      rating: parseInt(rating),
+      comment,
+      created_at: new Date().toISOString()
+    });
+    writeDb(data);
+    return { id, changes: 1 };
+  }
+
+  // 15. Insert Wishlist
+  if (cleanedSql.startsWith('INSERT INTO wishlists')) {
+    const [id, user_id, anonymous_id, product_id] = params;
+    data.wishlists = data.wishlists || [];
+    data.wishlists = data.wishlists.filter(w => !((w.user_id === user_id || w.anonymous_id === anonymous_id) && w.product_id === product_id));
+    data.wishlists.push({
+      id,
+      user_id: user_id || null,
+      anonymous_id: anonymous_id || null,
+      product_id,
+      created_at: new Date().toISOString()
+    });
+    writeDb(data);
+    return { id, changes: 1 };
+  }
+
+  // 16. Delete Wishlist
+  if (cleanedSql.startsWith('DELETE FROM wishlists WHERE')) {
+    const [userId, anonId, productId] = params;
+    data.wishlists = data.wishlists || [];
+    const initialLen = data.wishlists.length;
+    data.wishlists = data.wishlists.filter(w => !((w.user_id === userId || w.anonymous_id === anonId) && w.product_id === productId));
+    writeDb(data);
+    return { id: null, changes: initialLen - data.wishlists.length };
+  }
+
   console.warn('Unhandled raw SQL run:', sql);
   return { id: null, changes: 0 };
 };
@@ -408,6 +452,34 @@ export const all = async (sql, params = []) => {
     });
   }
 
+  // 6. Get reviews for a product
+  if (cleanedSql.includes('FROM reviews WHERE product_id =')) {
+    const [productId] = params;
+    data.reviews = data.reviews || [];
+    return data.reviews
+      .filter(r => r.product_id === productId)
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
+
+  // 7. Get wishlist items full info
+  if (cleanedSql.includes('FROM wishlists w JOIN products p')) {
+    const [userId, anonId] = params;
+    data.wishlists = data.wishlists || [];
+    const userWishlist = data.wishlists.filter(w => (w.user_id === userId || w.anonymous_id === anonId));
+    return userWishlist.map(w => {
+      const p = data.products.find(prod => prod.id === w.product_id);
+      const img = data.product_images.find(pi => pi.product_id === w.product_id && pi.is_primary === 1);
+      return {
+        id: w.id,
+        product_id: w.product_id,
+        name: p ? p.name : 'Unknown Product',
+        price: p ? p.price : 0,
+        slug: p ? p.slug : '',
+        primary_image_url: img ? img.url : null
+      };
+    });
+  }
+
   console.warn('Unhandled raw SQL all:', sql);
   return [];
 };
@@ -519,6 +591,33 @@ export const get = async (sql, params = []) => {
     data.users = data.users || [];
     const user = data.users.find(u => u.id === id);
     return user ? { ...user } : null;
+  }
+
+  // 12. Get reviews rating stats (count and average rating)
+  if (cleanedSql.includes('SELECT COUNT(*) as count, AVG(rating) as avg_rating FROM reviews WHERE product_id =')) {
+    const [productId] = params;
+    data.reviews = data.reviews || [];
+    const productReviews = data.reviews.filter(r => r.product_id === productId);
+    const count = productReviews.length;
+    const sum = productReviews.reduce((s, r) => s + r.rating, 0);
+    const avg = count > 0 ? parseFloat((sum / count).toFixed(1)) : 0;
+    return { count, avg_rating: avg };
+  }
+
+  // 13. Check if product is in wishlist
+  if (cleanedSql.includes('FROM wishlists WHERE') && cleanedSql.includes('product_id =')) {
+    const [userId, anonId, productId] = params;
+    data.wishlists = data.wishlists || [];
+    const found = data.wishlists.find(w => (w.user_id === userId || w.anonymous_id === anonId) && w.product_id === productId);
+    return found ? { id: found.id } : null;
+  }
+
+  // 14. Get total wishlist count
+  if (cleanedSql.startsWith('SELECT COUNT(*) as count FROM wishlists WHERE')) {
+    const [userId, anonId] = params;
+    data.wishlists = data.wishlists || [];
+    const count = data.wishlists.filter(w => w.user_id === userId || w.anonymous_id === anonId).length;
+    return { count };
   }
 
   console.warn('Unhandled raw SQL get:', sql);
